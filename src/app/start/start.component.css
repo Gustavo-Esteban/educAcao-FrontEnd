@@ -1,0 +1,25 @@
+.bg-fundo{
+  background: linear-gradient(135deg,#05235f,#000103);
+
+}
+.fs-40{
+  font-size: 40pt;
+  }
+
+  .fs-18{
+  font-size: 18pt;
+  }
+  .icon{
+    width: 50px;
+    height: 50px;
+}
+hr {
+    height: 1px;
+    color: #42c1f3;
+    background-color: #42c1f3;
+    border: none;
+}
+.tm-img{
+  width: 200px;
+  height: 60px;
+}

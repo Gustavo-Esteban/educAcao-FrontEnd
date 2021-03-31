@@ -1,0 +1,168 @@
+
+<div class="container-fluid bg-fundo ">
+  <nav class="navbar navbar-expand-lg  navbar-dark" >
+    <a class="navbar-brand" href="#"><img class="tm-img" src="../../assets/img/educAcaoAzul3.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link text-white" href="#home">Home <span class="sr-only">(página atual)</span></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Seção
+          </a>
+          <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+            <a class="dropdown-item text-info" href="#dicas">Dicas</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item text-info" href="#brasil">Brasil</a>
+            <a class="dropdown-item text-info" href="#exterior">Exterior</a>
+          </div>
+        </li>
+      </ul>
+      <div>
+        <!-- Botão para acionar modalEntrar -->
+        <a class="btn btn-outline-success mr-4 mt-3 mb-4" type="submit" data-toggle="modal" data-target="#modalLogin">Login</a>
+         <!-- Botão para acionar modalCadastrar -->
+         <a class="btn btn-outline-info  mr-4 mt-3 mb-4"  type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
+      </div>
+    </div>
+  </nav>
+
+  <hr class="mt-0">
+
+  <div class="row  d-flex align-items-center">
+
+     <div class="col-md-7">
+
+      <div class="row d-flex justify-content-center">
+         <div class="col-md-7 text-white">
+
+           <h1 class="fs-40 ">Acesse sua nova comunidade de estudos! 📚🎓</h1>
+
+         </div>
+      </div>
+
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-7 text-white">
+
+          <div class="form-group">
+              <label for="usuario">E-mail</label>
+              <input  class="form-control" type="text" name="usuario" id="usuario" placeholder="exemplo@exemplo.com">
+          </div>
+
+          <div class="form-group">
+              <label for="senha">Senha</label>
+              <input  class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
+          </div>
+
+           <button class="btn btn-success form-control mt-3" href="">Entrar</button>
+
+
+           <p class="text-center mt-2">
+            <a class='text-white ' routerLink="/cadastrar">Esqueceu sua senha?</a>
+        </p>
+
+           <hr class="mt-2 mb-2">
+
+        <p class="text-center ">
+            Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
+        </p>
+
+        </div>
+
+
+
+
+
+      </div>
+
+    </div>
+
+    <div class="col-md-5 ">
+
+       <!-- <img src="assets/img/mundoGif.gif" alt="" width="980px" height="570px"> -->
+
+       <img src="https://media.giphy.com/media/iFaPIqooUgZ2MkVNJI/giphy.gif" alt="" width="100%" height="100%">
+
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ModalLogin -->
+<div class="modal fade " id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content bg-fundo text-info">
+      <div class="modal-header">
+      <h5 class="modal-title" id="TituloModalCentralizado">Login</h5>
+      <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+              <label for="email" class=" text-white">Endereço de email:</label>
+              <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1">
+          </div>
+
+          <div class="form-group">
+              <label for="senha" class="  text-white">Senha:</label><br>
+              <input type="password" class="form-control bg-dark text-info" id="senha" placeholder="Senha">
+          </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      <button type="button" class="btn btn-success" data-dismiss="modal">Entrar</button>
+      </div>
+  </div>
+  </div>
+</div>
+<!-- /ModalLogin -->
+<!-- ModalCadastrar -->
+<div class="modal fade " id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+  <div class="modal-content bg-fundo text-info">
+      <div class="modal-header">
+      <h5 class="modal-title" id="TituloModalCentralizado">Cadastre-se</h5>
+      <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <form>
+              <div>
+                  <label for="nome" class=" text-white">Nome Completo:</label><br>
+                  <input type="text" id="nome" class="form-control bg-dark text-info" >
+                  <div id="txtNome"></div>
+              </div>
+
+
+              <div class="form-group">
+                  <label for="email" class=" text-white">Endereço de email:</label>
+                  <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+              </div>
+
+              <label for="senha" class=" text-white">Senha:</label><br>
+              <input type="password" class="form-control bg-dark text-info" id="senha" >
+              <div id="txtSenha"></div>
+
+              <label for="confirmaSenha" class=" text-white">Confirme sua Senha:</label><br>
+              <input type="password" class="form-control bg-dark text-info" id="confirmaSenha">
+              <div id="txtConfirmaSenha"></div>
+
+
+          </form>
+      </div>
+      <div class="modal-footer ">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      <button type="button" class="btn btn-outline-success" data-dismiss="modal">Salvar Cadastro</button>
+      </div>
+  </div>
+  </div>
+</div>
+<!-- /ModalCadastrar -->
