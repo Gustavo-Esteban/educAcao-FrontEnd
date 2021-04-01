@@ -50,15 +50,15 @@
 
           <div class="form-group">
               <label for="usuario">E-mail</label>
-              <input  class="form-control" type="text" name="usuario" id="usuario" placeholder="exemplo@exemplo.com">
+              <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="nome@exemplo.com">
           </div>
 
           <div class="form-group">
               <label for="senha">Senha</label>
-              <input  class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
+              <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
           </div>
 
-           <button class="btn btn-success form-control mt-3" href="">Entrar</button>
+           <button class="btn btn-success form-control mt-3" (click)='entrar()'>Entrar</button>
 
 
            <p class="text-center mt-2">
@@ -93,7 +93,9 @@
 
 <div class="container-fluid bg-fundo2">
   <div class="row">
-    <h1>dsadsadas</h1>
+    <div class="col-md-12 d-flex justify-content-center">
+      <h1 class="text center text-white mt-3">Sobre o Projeto</h1>
+    </div>
   </div>
 </div>
 
@@ -124,19 +126,19 @@
       </button>
       </div>
       <div class="modal-body">
-          <div class="form-group">
-              <label for="email" class=" text-white">Endereço de email:</label>
-              <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1">
-          </div>
+        <div class="form-group">
+          <label for="email" class=" text-white">Endereço de email:</label>
+          <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="nome@exemplo.com">
+        </div>
 
-          <div class="form-group">
-              <label for="senha" class="  text-white">Senha:</label><br>
-              <input type="password" class="form-control bg-dark text-info" id="senha" placeholder="Senha">
-          </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
+        </div>
       </div>
       <div class="modal-footer">
       <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-success" data-dismiss="modal">Entrar</button>
+      <button type="button" class="btn btn-success" data-dismiss="modal" (click)='entrar()'>Entrar</button>
       </div>
   </div>
   </div>
@@ -144,7 +146,7 @@
 <!-- /ModalLogin -->
 
 <!-- ModalCadastrar -->
-<div class="modal fade " id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade bg-fundo" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
   <div class="modal-content bg-fundo text-info">
       <div class="modal-header">
@@ -156,36 +158,35 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-              <label for="nome" class=" text-white">Nome Completo:</label><br>
-              <input type="text" id="nome" class="form-control bg-dark text-info" >
-              <div id="txtNome"></div>
+              <label for="nomeCompleto" class=" text-white">Nome Completo:</label><br>
+              <input [(ngModel)]='user.nomeCompleto' type="text" name="nomeCompleto" id="nomeCompleto" class="form-control text-info" >
           </div>
 
 
           <div class="form-group">
-              <label for="email" class=" text-white">Endereço de email:</label>
-              <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+              <label for="email" class=" text-white">E-mail:</label>
+              <input [(ngModel)]='user.email' type="email" class="form-control text-info" name="email" id="email" placeholder="nome@exemplo.com">
           </div>
 
           <div class="form-group">
             <label for="foto">Link da Foto</label>
-            <input class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
+            <input [(ngModel)]='user.foto' class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
           </div>
 
           <div class="form-group">
             <label for="senha">Senha</label>
-            <input  class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
+            <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
           </div>
 
           <div class="form-group">
             <label for="confirmSenha">Confirmar Senha</label>
-            <input  class="form-control" type="password" name="confirmSenha" id="confirmSenha" placeholder="Confirme sua Senha">
+            <input [(ngModel)]='user.senha' class="form-control" type="password" name="confirmSenha" id="confirmSenha" placeholder="Confirme sua Senha">
           </div>
         </form>
       </div>
       <div class="modal-footer ">
       <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-outline-success" data-dismiss="modal">Salvar Cadastro</button>
+      <button type="button" class="btn btn-outline-success"  data-dismiss="modal" (click)='cadastrar()'>cadastrar</button>
       </div>
   </div>
   </div>
