@@ -2,6 +2,18 @@
   background: linear-gradient(135deg,#05235f,#000103);
 
 }
+
+.bg-fundo1{
+  background: linear-gradient(180deg,#05235f, #42c1f3);
+
+}
+
+
+.bg-fundo2{
+  background: #05235f;
+}
+
+
 .fs-40{
   font-size: 40pt;
   }
