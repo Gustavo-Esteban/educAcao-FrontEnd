@@ -1,4 +1,4 @@
-
+<!-- entrar EducAcao -->
 <div class="container-fluid bg-fundo ">
   <nav class="navbar navbar-expand-lg  navbar-dark" >
     <a class="navbar-brand" href="#"><img class="tm-img" src="../../assets/img/educAcaoAzul3.png" alt="logo"></a>
@@ -62,7 +62,7 @@
 
 
            <p class="text-center mt-2">
-            <a class='text-white ' routerLink="/cadastrar">Esqueceu sua senha?</a>
+            <a class='text-white ' type="submit" data-toggle="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
         </p>
 
            <hr class="mt-2 mb-2">
@@ -87,6 +87,31 @@
 
     </div>
   </div>
+<!-- /entrar EducAcao -->
+<!-- informações sobre EducAcao -->
+</div>
+
+<div class="container-fluid bg-fundo2">
+  <div class="row">
+    <h1>dsadsadas</h1>
+  </div>
+</div>
+
+<div class="container-fluid bg-fundo1">
+  <div class="row">
+    <div class="col-md-4">
+      <img width="100%" height="100%"src="https://i.imgur.com/FQ1LBV1.png" alt="">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+
+    </div>
+  </div>
+
+</div>
+<!-- /informações sobre EducAcao -->
 
 <!-- ModalLogin -->
 <div class="modal fade " id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -129,29 +154,34 @@
       </button>
       </div>
       <div class="modal-body">
-          <form>
-              <div>
-                  <label for="nome" class=" text-white">Nome Completo:</label><br>
-                  <input type="text" id="nome" class="form-control bg-dark text-info" >
-                  <div id="txtNome"></div>
-              </div>
+        <form>
+          <div class="form-group">
+              <label for="nome" class=" text-white">Nome Completo:</label><br>
+              <input type="text" id="nome" class="form-control bg-dark text-info" >
+              <div id="txtNome"></div>
+          </div>
 
 
-              <div class="form-group">
-                  <label for="email" class=" text-white">Endereço de email:</label>
-                  <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
-              </div>
+          <div class="form-group">
+              <label for="email" class=" text-white">Endereço de email:</label>
+              <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1" placeholder="nome@exemplo.com">
+          </div>
 
-              <label for="senha" class=" text-white">Senha:</label><br>
-              <input type="password" class="form-control bg-dark text-info" id="senha" >
-              <div id="txtSenha"></div>
+          <div class="form-group">
+            <label for="foto">Link da Foto</label>
+            <input class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
+          </div>
 
-              <label for="confirmaSenha" class=" text-white">Confirme sua Senha:</label><br>
-              <input type="password" class="form-control bg-dark text-info" id="confirmaSenha">
-              <div id="txtConfirmaSenha"></div>
+          <div class="form-group">
+            <label for="senha">Senha</label>
+            <input  class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
+          </div>
 
-
-          </form>
+          <div class="form-group">
+            <label for="confirmSenha">Confirmar Senha</label>
+            <input  class="form-control" type="password" name="confirmSenha" id="confirmSenha" placeholder="Confirme sua Senha">
+          </div>
+        </form>
       </div>
       <div class="modal-footer ">
       <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
@@ -162,28 +192,30 @@
 
 </div>
 <!-- /ModalCadastrar -->
-</div>
-
-<div class="container-fluid bg-fundo2">
-  <div class="row">
-    <h1>dsadsadas</h1>
+<!-- Modal Recuperar Senha-->
+<div class="modal fade " id="modalRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content bg-fundo text-info">
+      <div class="modal-header">
+      <h5 class="modal-title" id="TituloModalCentralizado">Recuperar Senha</h5>
+      <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+              <label for="email" class=" text-white">Digite seu endereço de e-mail:</label>
+              <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1">
+          </div>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+      <button type="button" class="btn btn-success" data-dismiss="modal">Recuperar Senha</button>
+      </div>
+  </div>
   </div>
 </div>
-
-<div class="container-fluid bg-fundo1">
-  <div class="row">
-    <div class="col-md-4">
-      <img width="100%" height="100%"src="https://i.imgur.com/FQ1LBV1.png" alt="">
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-8">
-
-    </div>
-  </div>
-
-</div>
+<!-- /Modal Recuperar Senha -->
 
 <!--footer-->
 <footer>
