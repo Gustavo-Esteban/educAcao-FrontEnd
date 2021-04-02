@@ -49,27 +49,28 @@
         <div class="col-md-7 text-white">
 
           <div class="form-group">
+
+              <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="" required>
               <label for="usuario">E-mail</label>
-              <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="nome@exemplo.com">
           </div>
 
           <div class="form-group">
+              <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="" required>
               <label for="senha">Senha</label>
-              <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
-          </div>
+            </div>
 
            <button class="btn btn-success form-control mt-3" (click)='entrar()'>Entrar</button>
 
 
            <p class="text-center mt-2">
             <a class='text-white ' type="submit" data-toggle="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
-        </p>
+          </p>
 
            <hr class="mt-2 mb-2">
 
-        <p class="text-center ">
-            Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
-        </p>
+          <p class="text-center ">
+              Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
+          </p>
 
         </div>
 
@@ -80,10 +81,7 @@
 
     <div class="col-md-5 ">
 
-       <!-- <img src="assets/img/mundoGif.gif" alt="" width="980px" height="570px"> -->
-
        <img src="https://media.giphy.com/media/iFaPIqooUgZ2MkVNJI/giphy.gif" alt="" width="100%" height="100%">
-
 
     </div>
   </div>
@@ -102,7 +100,7 @@
 <div class="container-fluid bg-fundo1">
   <div class="row">
     <div class="col-md-4">
-      <img width="100%" height="100%"src="https://i.imgur.com/FQ1LBV1.png" alt="">
+      <img width="100%" height="100%"src="../../assets/img/Studying-bro.png" alt="">
     </div>
   </div>
 
@@ -116,29 +114,42 @@
 <!-- /informações sobre EducAcao -->
 
 <!-- ModalLogin -->
-<div class="modal fade " id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content bg-fundo text-info">
+<div class="modal fade bg-img1" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+  <div class="modal-content bg-ligth text-info br">
       <div class="modal-header">
-      <h5 class="modal-title" id="TituloModalCentralizado">Login</h5>
-      <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-      </button>
+        <div class="row ">
+          <h5 class="modal-title " id="TituloModalCentralizado"><img class="tm-img1 ml-3" src="../../assets/img/educAcaoAzul4.png" alt=""> Login</h5>
+        </div>
+
+        <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <label for="email" class=" text-white">Endereço de email:</label>
-          <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="nome@exemplo.com">
+          <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="" required>
+          <label for="email" >E-mail:</label>
         </div>
 
         <div class="form-group">
+
+          <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="" required>
+
           <label for="senha">Senha</label>
-          <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
+
+          <button class="btn btn-success form-control mt-3" (click)='entrar()'>Entrar</button>
+
+          <p class="text-center mt-3">
+            <a class="text-secondary" type="submit" data-toggle="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
+          </p>
+
         </div>
       </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-success" data-dismiss="modal" (click)='entrar()'>Entrar</button>
+      <div class="modal-footer d-flex justify-content-center">
+        <p class="text-center text-secondary ">
+          Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
+        </p>
       </div>
   </div>
   </div>
@@ -146,11 +157,11 @@
 <!-- /ModalLogin -->
 
 <!-- ModalCadastrar -->
-<div class="modal fade bg-fundo" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade bg-img" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered " role="document">
-  <div class="modal-content bg-fundo text-info">
+  <div class="modal-content br bg-light text-info">
       <div class="modal-header">
-      <h5 class="modal-title" id="TituloModalCentralizado">Cadastre-se</h5>
+      <h5 class="modal-title" id="TituloModalCentralizado"><img class="tm-img1 ml-3" src="../../assets/img/educAcaoAzul4.png" alt=""> Cadastre-se</h5>
       <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
       </button>
@@ -158,55 +169,57 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-              <label for="nomeCompleto" class=" text-white">Nome Completo:</label><br>
-              <input [(ngModel)]='user.nomeCompleto' type="text" name="nomeCompleto" id="nomeCompleto" class="form-control text-info" >
+              <input [(ngModel)]='user.nomeCompleto' type="text" name="nomeCompleto" id="nomeCompleto" class="form-control text-info" required >
+              <label for="nomeCompleto" >Nome Completo:</label><br>
           </div>
 
 
           <div class="form-group">
-              <label for="email" class=" text-white">E-mail:</label>
-              <input [(ngModel)]='user.email' type="email" class="form-control text-info" name="email" id="email" placeholder="nome@exemplo.com">
+              <input [(ngModel)]='user.email' type="email" class="form-control text-info" name="email" id="email" placeholder="" required>
+              <label for="email">E-mail:</label>
           </div>
 
           <div class="form-group">
+            <input [(ngModel)]='user.foto' class="form-control text-info" type="text" name="foto" id="foto" placeholder="" required>
             <label for="foto">Link da Foto</label>
-            <input [(ngModel)]='user.foto' class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
+
           </div>
 
           <div class="form-group">
+            <input (input)='confirmSenha($event)' class="form-control text-info" type="password" name="senha" id="senha" placeholder="" required>
             <label for="senha">Senha</label>
-            <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Sua Senha">
           </div>
 
           <div class="form-group">
+            <input [(ngModel)]='user.senha' class="form-control text-info" type="password" name="confirmSenha" id="confirmSenha" placeholder="" required>
             <label for="confirmSenha">Confirmar Senha</label>
-            <input [(ngModel)]='user.senha' class="form-control" type="password" name="confirmSenha" id="confirmSenha" placeholder="Confirme sua Senha">
           </div>
         </form>
       </div>
-      <div class="modal-footer ">
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-      <button type="button" class="btn btn-outline-success"  data-dismiss="modal" (click)='cadastrar()'>cadastrar</button>
+      <div class="modal-footer d-flex justify-content-center">
+
+      <button type="button" class="btn btn-info"  data-dismiss="modal" (click)='cadastrar()'>cadastrar</button>
       </div>
   </div>
   </div>
 
 </div>
 <!-- /ModalCadastrar -->
+
 <!-- Modal Recuperar Senha-->
-<div class="modal fade " id="modalRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade bg-fundo" id="modalRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
   <div class="modal-content bg-fundo text-info">
       <div class="modal-header">
-      <h5 class="modal-title" id="TituloModalCentralizado">Recuperar Senha</h5>
+      <h5 class="modal-title" id="TituloModalCentralizado"><img class="tm-img1 ml-3" src="../../assets/img/educAcaoAzul4.png" alt=""> Recuperar Senha</h5>
       <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
       </button>
       </div>
       <div class="modal-body">
           <div class="form-group">
-              <label for="email" class=" text-white">Digite seu endereço de e-mail:</label>
-              <input type="email" class="form-control bg-dark text-info" id="exampleFormControlInput1">
+              <input type="email" class="form-control  text-info" id="exampleFormControlInput1" required>
+              <label for="email" >Digite seu endereço de e-mail:</label>
           </div>
       </div>
       <div class="modal-footer">

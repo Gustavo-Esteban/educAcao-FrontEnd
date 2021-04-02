@@ -8,9 +8,30 @@
 
 }
 
-
 .bg-fundo2{
   background: #05235f;
+}
+
+.bg-fundo3{
+  background: linear-gradient(135deg, #4fa05d,#122e19);
+
+}
+
+.bg-img{
+  background-image: url('../../assets/img/bg2.jpg');
+
+}
+.bg-img1{
+  background-image: url('../../assets/img/bg1.jpg');
+
+}
+
+.modal-400{
+  width: 400px;
+}
+
+.br{
+  border-radius: 3%;
 }
 
 
@@ -34,4 +55,50 @@ hr {
 .tm-img{
   width: 200px;
   height: 60px;
+}
+.tm-img1{
+  width: 60px;
+  height: 50px;
+}
+
+.form-group input{
+  width: 100%;
+  padding: 5px 5px;
+  display: inline-block;
+  border: 0;
+  border-bottom: 2px solid #42c1f3;
+  background-color: transparent;
+  outline:none;
+  font-size: 16px;
+  transition: all .3s ease-out;
+  border-radius: 0;
+
+
+}
+.form-group{
+  position: relative;
+  padding-top: 13px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+
+}
+.form-group label{
+  color: #42c1f3;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-top: 13px;
+  transition: all .3s ease-out;
+
+}
+.form-group input:focus{
+  border-bottom: 2px solid #42c1f3;
+}
+
+.form-group input:focus + label, .form-group input:valid + label{
+  font-size: 13px;
+  margin-top: 0;
+  color: #42c1f3;
+
 }
