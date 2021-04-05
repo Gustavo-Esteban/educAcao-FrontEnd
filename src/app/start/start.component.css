@@ -68,7 +68,7 @@ hr {
   border: 0;
   border-bottom: 2px solid #42c1f3;
   background-color: transparent;
-  outline:none;
+  outline:none !important;
   font-size: 16px;
   transition: all .3s ease-out;
   border-radius: 0;
@@ -102,3 +102,4 @@ hr {
   color: #42c1f3;
 
 }
+

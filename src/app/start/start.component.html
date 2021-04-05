@@ -50,12 +50,12 @@
 
           <div class="form-group">
 
-              <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="" required>
+              <input [(ngModel)]='userLogin.email' type="email" class="form-control text-white " name="email" id="email" placeholder="" required>
               <label for="usuario">E-mail</label>
           </div>
 
           <div class="form-group">
-              <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="" required>
+              <input [(ngModel)]='userLogin.senha' class="form-control text-white" type="password" name="senha" id="senha" placeholder="" required>
               <label for="senha">Senha</label>
             </div>
 
@@ -138,17 +138,17 @@
 
           <label for="senha">Senha</label>
 
-          <button class="btn btn-success form-control mt-3" (click)='entrar()'>Entrar</button>
+          <button class="btn btn-success form-control mt-3" data-dismiss="modal" (click)='entrar()'>Entrar</button>
 
           <p class="text-center mt-3">
-            <a class="text-secondary" type="submit" data-toggle="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
+            <a class="text-secondary" type="submit" data-toggle="modal" data-dismiss="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
           </p>
 
         </div>
       </div>
       <div class="modal-footer d-flex justify-content-center">
         <p class="text-center text-secondary ">
-          Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
+          Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-dismiss="modal" data-target="#modalCadastrar">Cadastre-se</a>
         </p>
       </div>
   </div>
@@ -223,7 +223,6 @@
           </div>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
       <button type="button" class="btn btn-success" data-dismiss="modal">Recuperar Senha</button>
       </div>
   </div>
