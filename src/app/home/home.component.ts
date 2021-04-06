@@ -24,10 +24,10 @@ export class HomeComponent implements OnInit {
       this.foto = '../../assets/img/user.png'
     }
 
-    // if(environment.token ==''){
-    //   alert('Sua sessão inspirou. Faça o login novamente!')
-    //   this.router.navigate(['/start'])
-    // }
+    if(environment.token ==''){
+      alert('Sua sessão inspirou. Faça o login novamente!')
+      this.router.navigate(['/start'])
+    }
 
   }
 
