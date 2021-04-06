@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -10,11 +11,12 @@ export class HeaderComponent implements OnInit {
 
   nome = environment.nome
   foto = environment.foto
+  id = environment.id
 
 
-
-
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
 
@@ -24,5 +26,13 @@ export class HeaderComponent implements OnInit {
 
 
   }
+  sair(){
+    this.router.navigate(['/start'])
+    environment.token = ''
+    environment.nome = ''
+    environment.foto = ''
+    environment.id = 0
+  }
+
 
 }
