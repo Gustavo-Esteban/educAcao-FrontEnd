@@ -41,37 +41,57 @@
 
       <div class="col-md-10">
 
-        <div class="row bg-white mt-3">
-          <p class="card-text"><img src="{{foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
-            <input type="text" class=" ml-3"  placeholder="Nova Publicação"></p>
-        </div>
-
-
-        <div class="row align-items-center">
-          <div class="card mt-3">
+        <div class="row align-items-center ">
+          <div class="card mt-3 w-100">
             <div class="card-header">
-              Destaque
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Título especial</h5>
-              <p class="card-text">Com suporte a texto embaixo, que funciona como udicional.</p>
-              <a href="#" class="btn btn-primary">Visitar</a>
+              <p class="card-text mt-3 mb-3">
+                <img src="{{foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
+
+                <input type="text" class=" ml-3"  placeholder="Nova Publicação"  data-toggle="modal" data-target="#novaPostagem ">
+
+                <i class="fa fa-file-image-o ml-3 mr-3" aria-hidden="true"  data-toggle="modal" data-target="#novaPostagem "></i>
+
+                <i class="fa fa-file-video-o" aria-hidden="true"  data-toggle="modal" data-target="#novaPostagem "></i>
+              </p>
+
             </div>
           </div>
         </div>
 
+        <nav>
+          <div class="nav nav-tabs d-flex justify-content-center mt-3" id="nav-tab" role="tablist">
+
+            <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-todasPostagens" data-toggle="tab" href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as Postagens</a>
+
+            <a  class="nav-item nav-link text-secondary font-weight-bold" id="nav-minhasPostagens-tab " data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+
+            <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-postagemTema-tab" data-toggle="tab" href="#postagemTema" role="tab" aria-controls="nav-postagemTema" aria-selected="false">Postagens por Temas</a>
+
+          </div>
+        </nav>
+
+
+          <!-- <div class="row align-items-center ">
+            <div class="card mt-3 w-100">
+              <div class="card-header">
+                Destaque
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Título especial</h5>
+                <p class="card-text">Com suporte a texto embaixo, que funciona como udicional.</p>
+                <a href="#" class="btn btn-primary">Visitar</a>
+              </div>
+            </div>
+          </div> -->
+
       </div>
-
-
-
-
 
     </div>
   </div>
   <!-- /postagens -->
 </div>
 
-<!-- Modal -->
+<!-- Modal postagem -->
 <div class="modal fade" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -107,4 +127,4 @@
   </div>
 </div>
 
-<!-- /Modal -->
+<!-- /Modal Postagem -->
