@@ -41,6 +41,11 @@ export class StartComponent implements OnInit {
         alert('As senhas estão incorretas!')
     }
     else{
+
+      if(this.user.foto == null || this.user.foto == ''){
+        this.user.foto = 'https://i.imgur.com/2fNwmra.png'
+      }
+
       this.authService.cadastrar(this.user).subscribe((resp: Usuario)=> {
         this.user = resp
 

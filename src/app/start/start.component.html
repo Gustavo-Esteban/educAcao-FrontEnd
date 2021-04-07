@@ -130,13 +130,13 @@
       </div>
       <div class="modal-body">
         <div class="form-group">
-          <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="email" id="email" placeholder="" required>
+          <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="emailModalLogin" id="emailModalLogin" placeholder="" required>
           <label for="email" >E-mail:</label>
         </div>
 
         <div class="form-group">
 
-          <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senha" id="senha" placeholder="" required>
+          <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senhaModalLogin" id="senhaModalLogin" placeholder="" required>
 
           <label for="senha">Senha</label>
 
@@ -177,7 +177,7 @@
 
 
           <div class="form-group">
-              <input [(ngModel)]='user.email' type="email" class="form-control text-info" name="email" id="email" placeholder="" required>
+              <input [(ngModel)]='user.email' type="email" class="form-control text-info" name="emailModalCadastrar" id="emailModalCadastrar" placeholder="" required>
               <label for="email">E-mail:</label>
           </div>
 
@@ -188,12 +188,12 @@
           </div>
 
           <div class="form-group">
-            <input (input)='confirmSenha($event)' class="form-control text-info" type="password" name="senha" id="senha" placeholder="" required>
+            <input (input)='confirmSenha($event)' class="form-control text-info" type="password" name="senhaModalCadastrar" id="senhaModalCadastrar" placeholder="" required>
             <label for="senha">Senha</label>
           </div>
 
           <div class="form-group">
-            <input [(ngModel)]='user.senha' class="form-control text-info" type="password" name="confirmSenha" id="confirmSenha" placeholder="" required>
+            <input [(ngModel)]='user.senha' class="form-control text-info" type="password" name="confirmSenhaModalCadastrar" id="confirmSenhaModalCadastrar" placeholder="" required>
             <label for="confirmSenha">Confirmar Senha</label>
           </div>
         </form>

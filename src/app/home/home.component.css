@@ -6,3 +6,13 @@
 .borda{
   border-radius: 5%;
 }
+
+
+.config-video {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 50px;
+}

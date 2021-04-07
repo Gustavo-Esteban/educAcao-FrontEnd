@@ -20,9 +20,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.foto == null || this.foto == ''){
-      this.foto = '../../assets/img/user.png'
-    }
+
 
 
   }
