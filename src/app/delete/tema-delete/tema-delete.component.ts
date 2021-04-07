@@ -23,7 +23,10 @@ export class TemaDeleteComponent implements OnInit {
 
   ngOnInit() {
 
+    window.scroll(0,0)
+
     if(environment.token == ''){
+      alert('Sua sessão inspirou. Faça o login novamente!')
       this.router.navigate(['/start'])
     }
 

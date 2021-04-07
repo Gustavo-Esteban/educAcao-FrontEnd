@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
 
+    window.scroll(0,0)
 
     if(environment.token ==''){
       alert('Sua sessão inspirou. Faça o login novamente!')

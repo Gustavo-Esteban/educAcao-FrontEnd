@@ -72,7 +72,12 @@
               <div class="card mt-3 w-100" *ngFor='let i of listaPostagem'>
                 <div class="card-header">
 
-                <p> <img src="{{i.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle"> {{i.usuario.nomeCompleto}} <small class="text-muted">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}}</small></p>
+                <p>
+                  <img src="{{i.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle"> {{i.usuario.nomeCompleto}}
+
+                  <small class="text-muted ml-5">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}}</small>
+                </p>
+                <p>Tema: {{i.tema.nome}}</p>
 
                 </div>
                 <div class="card-body">
@@ -97,7 +102,18 @@
             <div class="card mt-3 w-100" *ngFor='let i of user.postagem'>
 
               <div class="card-header">
-                <p> <img src="{{foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle"> {{nome}} <small class="text-muted">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}}</small></p>
+                <p>
+                  <img src="{{foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle"> {{nome}}
+                  <small class="text-muted ml-5">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}}</small>
+
+                  <a [routerLink]="['/postagem-edit', i.id]" class="text-info ml-5 mr-3" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+                  <a [routerLink]="['/postagem-delete', i.id]" class="text-danger mt-3" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                </p>
+
+
+                <p>Tema: {{i.tema.nome}}                </p>
+
               </div>
 
               <div class="card-body">
@@ -114,17 +130,9 @@
               </div>
             </div>
 
-
           </div>
 
-
-
         </div>
-
-
-
-
-
 
     </div>
   </div>
