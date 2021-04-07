@@ -6,6 +6,7 @@
   background: linear-gradient(180deg,#05235f, #42c1f3);
   color: white;
 
+
  }
 
  hr{
@@ -15,9 +16,10 @@
  }
 
  footer{
-   background-color: rgb(7, 7, 7);
-   color: white;
- }
+  background-color: black;
+  color: white;
+  padding: 13px;
+}
 
 .icone{
   display: block;
@@ -80,6 +82,13 @@
 
 }
 
+.subir{
+  animation: is-bouncing1 0.7s ease alternate infinite;
+  display: grid;
+  height: 30px;
+}
+
+
 a{
   margin-left: 12px;
   text-decoration: none;
@@ -88,6 +97,11 @@ a{
 
 @keyframes is-bouncing {
   to{
-    transform: translateX(30px);
+    transform: translateX(15px);
+  }
+}
+@keyframes is-bouncing1 {
+  to{
+    transform: translateY(15px);
   }
 }

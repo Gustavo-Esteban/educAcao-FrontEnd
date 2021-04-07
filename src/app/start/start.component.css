@@ -103,3 +103,30 @@ hr {
 
 }
 
+footer{
+  background-color: black;
+  color: white;
+  padding: 13px;
+}
+
+.sobre{
+margin-top:275px;
+}
+
+
+
+.subir{
+  animation: is-bouncing1 0.7s ease alternate infinite;
+  display: grid;
+  height: 30px;
+}
+
+.botaoCa{
+  margin-left: 600px;
+}
+
+@keyframes is-bouncing1 {
+  to{
+    transform: translateY(15px);
+  }
+}
