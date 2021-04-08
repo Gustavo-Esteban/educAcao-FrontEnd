@@ -9,7 +9,7 @@
           <h5 class="card-title" id="titulobuscar"><img class="tm-img1" src="https://i.imgur.com/O5a4FxV.png" alt="">
           </h5>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Pesquisar postagem 🔎" aria-label="Recipient's username"
+            <input type="text" class="form-control" placeholder="Pesquisar Postagem             🔎" aria-label="Recipient's username" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'
               aria-describedby="button-addon2">
           </div>
         </div>
@@ -23,9 +23,9 @@
         <div class="card-body" id="conteudocard">
           <h2 class="titulocard">Temas</h2>
           <hr>
-          <a class="cardfont" href=""><img src="https://i.imgur.com/SGFTg3A.png" class="iconcard"> Exatas</a>
+          <a class="cardfont" href="#nav-minhasPostagens-tab"><img src="https://i.imgur.com/SGFTg3A.png" class="iconcard"> Exatas</a>
           <hr>
-          <a class="cardfont" href=""><img src="https://i.imgur.com/f3ZMuEl.png" class="iconcard"> Humanas</a>
+          <a class="cardfont" href="#minhasPostagens"><img src="https://i.imgur.com/f3ZMuEl.png" class="iconcard"> Humanas</a>
           <hr>
           <a class="cardfont" href=""><img src="https://i.imgur.com/O7kHv4Y.png" class="iconcard"> Biológicas</a>
           <hr>
@@ -57,14 +57,14 @@
               </p>
               <hr>
               <div class="container-fluid d-flex justify-content-center">
-                <label class="btn btn-default mr-5"><img src="https://i.imgur.com/3Vxv2W2.png" id="iconbuscar">
-                  Foto <input type="file" hidden>
+                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar" src="https://i.imgur.com/3Vxv2W2.png" >
+                  Foto <input type="button" hidden>
                 </label>
-                <label class="btn btn-default mr-5"><img src="https://i.imgur.com/2kGNjeH.png" id="iconbuscar">
-                  Vídeo <input type="file" hidden>
+                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar" src="https://i.imgur.com/2kGNjeH.png" >
+                  Vídeo <input type="button" hidden>
                 </label>
-                <label class="btn btn-default "><img src="https://i.imgur.com/CThG0we.png" id="iconbuscar">
-                  Documento <input type="file" hidden>
+                <label class="btn btn-default" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar" src="https://i.imgur.com/CThG0we.png" >
+                  Documento <input type="button" hidden>
                 </label>
               </div>
             </div>
@@ -78,7 +78,7 @@
               href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as
               Postagens</a>
 
-            <a (click)='findByIdUser()' class="nav-item nav-link font-weight-bold" id="nav-minhasPostagens-tab" id="nav-minhasPostagens-tab " id="navstyle" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+            <a (click)='findByIdUser()' class="nav-item nav-link font-weight-bold" id="nav-minhasPostagens-tab"  id="navstyle" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
           </div>
         </nav>
 
@@ -86,7 +86,7 @@
 
           <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"       aria-labelledby="nav-todasPostagens-tab">
             <div class="row align-items-center">
-              <div class="card mt-5 w-100 bodypost" *ngFor='let i of listaPostagem'>
+              <div class="card mt-5 w-100 bodypost" *ngFor='let i of listaPostagem | orderBy: key : reverse'>
                 <div class="card-header">
 
                     <img src="{{i.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
@@ -115,7 +115,7 @@
 
           <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
-            <div class="card mt-5 w-100 bodypost"  *ngFor='let i of user.postagem'>
+            <div class="card mt-5 w-100 bodypost"  *ngFor='let i of user.postagem | orderBy: key : reverse'>
 
               <div class="card-header">
                 <div>

@@ -1,6 +1,9 @@
 .fs-16{
     font-size: 16pt;
 }
+.fs-14{
+  font-size: 14pt;
+}
 a{
     cursor: pointer;
 }

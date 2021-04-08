@@ -25,6 +25,7 @@ export class HomeComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   listaPostagem: Postagem[]
+  tituloPost: string
 
 
   videoSeguro: any;
@@ -35,6 +36,9 @@ export class HomeComponent implements OnInit {
 
   foto = environment.foto
   nome = environment.nome
+
+  key = 'data'
+  reverse = true
 
 
   constructor(
@@ -129,6 +133,17 @@ export class HomeComponent implements OnInit {
     this.videoSeguro = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoNovo);
   }
 
+  findByTituloPostagem(){
+    if(this.tituloPost == ''){
+      this.getAllPostagem()
+    }
+    else{
+      this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>{
+        this.listaPostagem = resp
+      })
+    }
+
+  }
 
 
 }

@@ -21,10 +21,13 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right dropmenu " aria-labelledby="navbarDropdown">
               <li class="nav-item pl-3">
-                 <a [routerLink]="['user-edit', id]" class="m-0 text-white fs-16"><i class="fa fa-cog" aria-hidden="true"></i> Editar perfil</a>
+                 <a [routerLink]="['user-edit', id]" class="m-0 font-weight-bold text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar perfil</a>
               </li>
-              <hr>
-            <a (click)='sair()' class="m-3 font-weight-bold text-white fs-16 "><i class="fa fa-sign-out" aria-hidden="true"></i> Sair </a>
+
+              <li>
+                <a (click)='sair()' class="m-3 mt-0 font-weight-bold text-white fs-14 "><i class="fa fa-sign-out" aria-hidden="true"></i> Sair </a>
+              </li>
+
           </div>
         </li>
     </ul>
