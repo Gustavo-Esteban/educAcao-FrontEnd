@@ -4,3 +4,14 @@
 a{
     cursor: pointer;
 }
+
+nav {
+  background-color: #030752;
+}
+
+
+.dropmenu {
+  background-color: #242761;
+  font-family: Arial, sans-serif	;
+
+}
