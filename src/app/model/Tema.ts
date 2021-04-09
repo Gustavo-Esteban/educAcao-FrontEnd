@@ -5,4 +5,5 @@ export class Tema{
   public nome: string
   public descricao: string
   public postagem: Postagem[]
+  public icon: string
 }

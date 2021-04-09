@@ -1,12 +1,11 @@
-.tm-img1{
+.tm-img1 {
   width: 60px;
   height: 50px;
 }
 
-.borda{
+.borda {
   border-radius: 5%;
 }
-
 
 .config-video {
   display: flex;
@@ -16,113 +15,123 @@
 
   margin-top: 50px;
 }
-#bg{
+#bg {
   background-color: #e9e9e9;
 }
 
- .iconbuscar {
-   height: 20px;
- }
+.iconbuscar {
+  height: 20px;
+}
 
- label{
-   color: #2E2E2E;
-   font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman, serif;
-   font-weight: bold;
+label {
+  color: #2e2e2e;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
+  font-weight: bold;
+}
 
- }
+#navstyle {
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
+  border-radius: 20px;
+  color: #151515;
+}
 
- #navstyle {
-   font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman, serif;
-   border-radius: 20px;
-   color: #151515;
- }
+#iconmodal {
+  height: 20px;
+  margin-bottom: 0px;
+}
 
- #iconmodal {
-   height: 20px;
-   margin-bottom: 0px;
+#titulobuscar,
+#titulopost {
+  text-align: center;
+  font-weight: bolder;
+  font-family: Gill Sans, sans-serif;
+}
 
- }
+.titulocard {
+  text-align: center;
+  font-weight: bolder;
+  color: #151515;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
+}
 
- #titulobuscar, #titulopost {
-   text-align: center;
-   font-weight:bolder;
-   font-family: Gill Sans, sans-serif;
- }
+.iconcard {
+  height: 45px;
+}
+.iconcard1 {
+  height: 35px;
+}
 
- .titulocard {
-   text-align: center;
-   font-weight:bolder;
-   color: #151515;
-   font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman, serif;
- }
+#bodypostagem,
+.bodypost {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
- .iconcard {
-   height: 45px;
- }
+#conteudocard {
+  font-weight: bold;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 5px;
+}
 
- #bodypostagem, .bodypost {
-   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-   overflow: hidden;
-   border-radius: 5px;
-   margin-left: 0px;
-   margin-right: 0px;
- }
+.cardfont {
+  text-decoration: none;
+  font-family: Trebuchet MS, sans-serif, Gill Sans, sans-serif;
+  color: #5c5d6d;
+}
 
- #conteudocard {
-   font-weight: bold;
-   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
-   overflow: hidden;
-   border-radius: 5px;
- }
+.modaltitle {
+  font-weight: bolder;
+  padding: 5px;
+  margin-bottom: 0px;
+}
 
- .cardfont {
-   text-decoration: none;
-   font-family: Trebuchet MS, sans-serif, Gill Sans, sans-serif;
-   color: #5C5D6D;
- }
+.colormodaltitle {
+  background-color: #030752;
+  color: whitesmoke;
+}
 
- .modaltitle {
-   font-weight: bolder;
-   padding: 5px;
-   margin-bottom: 0px;
- }
-
- .colormodaltitle {
-   background-color: #030752;
-   color: whitesmoke;
- }
-
- .titlerodape {
+.titlerodape {
   padding: 10px 12px;
- }
+}
 
- #modalheight {
-   padding: 16px;
-   padding-bottom: 0px;
- }
+#modalheight {
+  padding: 16px;
+  padding-bottom: 0px;
+}
 
- #mb0 {
-   margin-bottom: 0px;
- }
+#mb0 {
+  margin-bottom: 0px;
+}
 
- .blur {
-   backdrop-filter: blur(3px);
- }
+.blur {
+  backdrop-filter: blur(3px);
+}
 
- .postfonth {
-   font-weight: bold;
-   color:#424242;
-   padding-left: 10px;
- }
+.postfonth {
+  font-weight: bold;
+  color: #424242;
+  padding-left: 10px;
+}
 
- #mtema {
+#mtema {
   text-align: center;
   padding-bottom: 0px;
   margin-bottom: 0px;
   margin-top: 10px;
- }
+}
 
- .fontpostb {
-   color: #1C1C1C;
-   font-family:Arial, Helvetica, sans-serif;
- }
+.fontpostb {
+  color: #1c1c1c;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+li{
+  list-style-type: none;
+}

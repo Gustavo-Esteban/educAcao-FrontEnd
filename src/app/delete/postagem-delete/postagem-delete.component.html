@@ -12,7 +12,51 @@
     </div>
   </div>
 
-  <div class="row d-flex justify-content-center mt-4">
+
+
+
+
+
+  <div class="row align-items-center">
+
+    <div class="card mt-3 mb-3 w-100 bodypost " >
+
+      <div class="card-header">
+
+          <img src="{{postagem.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
+
+          <span class="postfonth">{{postagem.usuario.nomeCompleto}}</span>
+          <small class="text-muted ml-5">{{postagem.data| date:'dd/MM/yyyy'}} às {{postagem.data| date: 'HH:mm'}} <i class="fa fa-clock-o" aria-hidden="true"></i>
+          </small>
+
+      </div>
+
+      <h5 id="mtema">{{postagem.tema.nome}}</h5>
+
+      <div class="card-body">
+        <h5 class="card-title" id="titulopost">{{postagem.titulo}}</h5>
+        <p class="card-text" id="fontpostb">{{postagem.conteudo}}</p>
+        <img *ngIf='postagem.imagem != null' src="{{postagem.imagem}}" width="100%" height="100%" alt="">
+
+        <div class="container" *ngIf='postagem.videoSeguro.changingThisBreaksApplicationSecurity != null'>
+           <div class="row config-video ">
+                  <iframe width="560" height="315" [src]=postagem.videoSeguro title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
+           </div>
+        </div>
+
+    </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- <div class="row d-flex justify-content-center mt-4">
     <div class="col-md-4">
 
       <div class="card text-center">
@@ -25,7 +69,7 @@
       </div>
 
     </div>
-  </div>
+  </div> -->
 
   <div class="row mt-5">
     <div class="col-md-12 d-flex justify-content-center">

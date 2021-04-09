@@ -23,6 +23,9 @@
               <li class="nav-item pl-3">
                  <a [routerLink]="['user-edit', id]" class="m-0 font-weight-bold text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar perfil</a>
               </li>
+              <li *ngIf='auth.adm()' class="nav-item pl-3">
+                <a routerLink='/tema' class="m-0 font-weight-bold text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar tema</a>
+             </li>
 
               <li>
                 <a (click)='sair()' class="m-3 mt-0 font-weight-bold text-white fs-14 "><i class="fa fa-sign-out" aria-hidden="true"></i> Sair </a>

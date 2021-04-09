@@ -1,69 +1,66 @@
-<div class="container-fluid d-flex justify-content-center" id="bg" >
+<div class="container-fluid d-flex justify-content-center" id="bg">
   <!-- Parte fixa esquerda Pag -->
-  <div class="col-md-4 ">
-
-    <div class="row  d-flex justify-content-center">
-
-      <div class="card mt-3" style="width: 18rem;">
+  <div class="col-md-4 mt-3">
+    <div class="row d-flex justify-content-center">
+      <div class="card mt-3" style="width: 18rem">
         <div class="card-body" id="conteudocard">
           <p class="" id="titulobuscar">O que você está procurando?</p>
           <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Pesquisar Postagem             🔎" aria-label="Recipient's username" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'
-              aria-describedby="button-addon2">
+            <input type="text" class="form-control" placeholder="Pesquisar Postagem             🔎"
+              aria-label="Recipient's username" [(ngModel)]="tituloPost" (keyup)="findByTituloPostagem()"
+              aria-describedby="button-addon2" />
           </div>
         </div>
       </div>
-
     </div>
 
     <div class="row d-flex justify-content-center">
-
-      <div class="card mt-3 mb-3" style="width: 18rem;">
+      <div class="card mt-3 mb-3" style="width: 18rem">
         <div class="card-body" id="conteudocard">
           <h2 class="titulocard">Temas</h2>
-          <hr>
-          <a class="cardfont" [routerLink]="['/tema-view', 1]"><img src="https://i.imgur.com/SGFTg3A.png" class="iconcard"> Exatas</a>
-          <hr>
-          <a class="cardfont" [routerLink]="['/tema-view', 2]"><img src="https://i.imgur.com/f3ZMuEl.png" class="iconcard"> Humanas</a>
-          <hr>
-          <a class="cardfont" [routerLink]="['/tema-view', 3]"><img src="https://i.imgur.com/O7kHv4Y.png" class="iconcard"> Biológicas</a>
-          <hr>
-          <a class="cardfont" [routerLink]="['/tema-view', 4]"><img src="https://i.imgur.com/YQFrotI.png" class="iconcard"> Tecnologia</a>
-          <hr>
-          <a class="cardfont" [routerLink]="['/tema-view', 5]"><img src="https://i.imgur.com/WlLAlDC.png" class="iconcard"> Idiomas</a>
+          <hr />
+
+          <ul>
+            <li class="mb-3" *ngFor="let i of listaTema">
+              <a class="cardfont" [routerLink]="['/tema-view', i.id]"><img src="{{ i.icon }}" class="iconcard" /> {{
+                i.nome }}</a>
+            </li>
+          </ul>
         </div>
       </div>
-
     </div>
-
   </div>
   <!-- /Parte fixa esquerda Pag -->
 
   <!-- postagens -->
-  <div class="col-md-8 d-flex justify-content-center">
+  <div class="col-md-8 d-flex justify-content-center mt-3">
     <div class="container">
-
       <div class="col-md-9">
-
-        <div class="row align-items-center ">
+        <div class="row align-items-center">
           <div class="card border-secondary mt-3 w-100" id="bodypostagem">
             <div class="card-header">
               <p class="card-text mt-3 mb-3">
-                <img src="{{foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
+                <img src="{{ foto }}" alt="imagem do user" width="50px" height="50px"
+                  class="img-fluid rounded-circle" />
 
-               <button type="button" class="btn btn-outline-secondary btn-md ml-4" style="width: 80%"
-               data-toggle="modal" data-target="#novaPostagem">Olá {{nome}}, comece uma publicação aqui!</button>
+                <button type="button" class="btn btn-outline-secondary btn-md ml-4" style="width: 80%"
+                  data-toggle="modal" data-target="#novaPostagem">
+                  Olá {{ nome }}, comece uma publicação aqui!
+                </button>
               </p>
-              <hr>
+              <hr />
               <div class="container-fluid d-flex justify-content-center">
-                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar" src="https://i.imgur.com/3Vxv2W2.png" >
-                  Foto <input type="button" hidden>
+                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img
+                    class="iconbuscar" src="https://i.imgur.com/3Vxv2W2.png" />
+                  Foto <input type="button" hidden />
                 </label>
-                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar" src="https://i.imgur.com/2kGNjeH.png" >
-                  Vídeo <input type="button" hidden>
+                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img
+                    class="iconbuscar" src="https://i.imgur.com/2kGNjeH.png" />
+                  Vídeo <input type="button" hidden />
                 </label>
-                <label class="btn btn-default" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar" src="https://i.imgur.com/CThG0we.png" >
-                  Documento <input type="button" hidden>
+                <label class="btn btn-default" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar"
+                    src="https://i.imgur.com/CThG0we.png" />
+                  Referências <input type="button" hidden />
                 </label>
               </div>
             </div>
@@ -72,97 +69,117 @@
 
         <nav>
           <div class="nav nav-tabs d-flex justify-content-center mt-3" id="nav-tab" role="tablist">
-
             <a class="nav-item nav-link active font-weight-bold" id="nav-todasPostagens" id="navstyle" data-toggle="tab"
               href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as
               Postagens</a>
 
-            <a (click)='findByIdUser()' class="nav-item nav-link font-weight-bold" id="nav-minhasPostagens-tab"  id="navstyle" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens" aria-selected="false">Minhas Postagens</a>
+            <a (click)="findByIdUser()" class="nav-item nav-link font-weight-bold" id="nav-minhasPostagens-tab"
+              id="navstyle" data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens"
+              aria-selected="false">Minhas Postagens</a>
           </div>
         </nav>
 
         <div class="tab-content mt-3" id="nav-tabContent">
-
-          <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"       aria-labelledby="nav-todasPostagens-tab">
+          <!-- Todas as Postagens -->
+          <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
+            aria-labelledby="nav-todasPostagens-tab">
             <div class="row align-items-center">
-              <div class="card mt-5 mb-5 w-100 bodypost" *ngFor='let i of listaPostagem | orderBy: key : reverse'>
+              <div class="card mt-3 mb-3 w-100 bodypost" *ngFor="let i of listaPostagem | orderBy: key:reverse">
                 <div class="card-header">
+                  <img src="{{ i.usuario.foto }}" alt="imagem do user" width="50px" height="50px"
+                    class="img-fluid rounded-circle" />
+                  <span class="postfonth">{{ i.usuario.nomeCompleto }}</span>
+                  <small class="text-muted ml-5">{{ i.data | date: "dd/MM/yyyy" }} às
+                    {{ i.data | date: "HH:mm" }}
+                    <i class="fa fa-clock-o" aria-hidden="true"></i></small>
 
-                    <img src="{{i.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
-                   <span class="postfonth">{{i.usuario.nomeCompleto}}</span>
-                    <small class="text-muted ml-5">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i class="fa fa-clock-o" aria-hidden="true"></i></small>
-
-
-                    <h5 id="mtema">{{i.tema.nome}}</h5>
-
+                  <h5 id="mtema">
+                    <img class="iconcard1" src="{{ i.tema.icon }}" alt="" />
+                    {{ i.tema.nome }}
+                  </h5>
                 </div>
                 <div class="card-body">
+                  <h5 class="card-title">{{ i.titulo }}</h5>
+                  <p class="card-text">{{ i.conteudo }}</p>
+                  <img *ngIf="i.imagem != null" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
-                  <h5 class="card-title">{{i.titulo}}</h5>
-                  <p class="card-text">{{i.conteudo}}</p>
-                  <img *ngIf='i.imagem != null' src="{{i.imagem}}" width="100%" height="100%" alt="">
-
-                  <div *ngIf='i.videoSeguro.changingThisBreaksApplicationSecurity != null' class="container">
-                     <div class="row config-video ">
-                            <iframe width="560" height="315" [src]=i.videoSeguro title="YouTube video player" frameborder="0"       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
-                     </div>
+                  <div *ngIf="
+                      i.videoSeguro.changingThisBreaksApplicationSecurity !=
+                      null
+                    " class="container">
+                    <div class="row config-video">
+                      <iframe width="560" height="315" [src]="i.videoSeguro" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          <!-- /Todas as Postagens -->
 
-          <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
+          <!-- Minhas Postagens -->
+          <div class="tab-pane fade show active" id="minhasPostagens" role="tabpanel"
+            aria-labelledby="nav-minhasPostagens-tab">
+            <div class="row align-items-center">
+              <div class="card mt-3 mb-3 w-100 bodypost" *ngFor="let i of listUserPostagem | orderBy: key:reverse">
+                <div class="card-header">
+                  <img src="{{ foto }}" alt="imagem do user" width="50px" height="50px"
+                    class="img-fluid rounded-circle" />
 
-            <div class="card mt-5 w-100 bodypost mb-5"  *ngFor='let i of listUserPostagem | orderBy: key : reverse'>
+                  <span class="postfonth">{{ nome }}</span>
+                  <small class="text-muted ml-5">{{ i.data | date: "dd/MM/yyyy" }} às
+                    {{ i.data | date: "HH:mm" }}
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  </small>
 
-              <div class="card-header">
-                <div>
-
-                    <img src="{{foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
-
-                    <span class="postfonth">{{nome}}</span>
-                    <small class="text-muted ml-5">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    </small>
-
-
-                  <a [routerLink]="['/postagem-edit', i.id]" class="text-info ml-5 mr-3" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                  <a [routerLink]="['/postagem-delete', i.id]" class="text-danger mt-3" ><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                  <a [routerLink]="['/postagem-edit', i.id]" class="text-info ml-5 mr-3"><i
+                      class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                  <a [routerLink]="['/postagem-delete', i.id]" class="text-danger mt-3"><i class="fa fa-trash-o"
+                      aria-hidden="true"></i></a>
                 </div>
 
-                <h5 id="mtema">{{i.tema.nome}}</h5>
+                <h5 id="mtema">{{ i.tema.nome }}</h5>
 
-              </div>
+                <div class="card-body">
+                  <h5 class="card-title" id="titulopost">{{ i.titulo }}</h5>
+                  <p class="card-text" id="fontpostb">{{ i.conteudo }}</p>
+                  <img *ngIf="i.imagem != null" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
-              <div class="card-body">
-                <h5 class="card-title" id="titulopost">{{i.titulo}}</h5>
-                <p class="card-text" id="fontpostb">{{i.conteudo}}</p>
-                <img *ngIf='i.imagem != null' src="{{i.imagem}}" width="100%" height="100%" alt="">
-
-                <div class="container" *ngIf='i.videoSeguro.changingThisBreaksApplicationSecurity != null'>
-                   <div class="row config-video ">
-                          <iframe width="560" height="315" [src]=i.videoSeguro title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
-                   </div>
+                  <div class="container" *ngIf="
+                      i.videoSeguro.changingThisBreaksApplicationSecurity !=
+                      null
+                    ">
+                    <div class="row config-video">
+                      <iframe width="560" height="315" [src]="i.videoSeguro" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    </div>
+                  </div>
                 </div>
-
               </div>
             </div>
-
           </div>
-
+          <!-- /Minhas Postagens -->
         </div>
-
+      </div>
     </div>
   </div>
   <!-- /postagens -->
 </div>
 
 <!-- Modal postagem -->
-<div class="modal fade blur" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade blur" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header colormodaltitle">
-        <h5 class="modal-title modaltitle" id="TituloModalCentralizado">Nova Postagem</h5>
+        <h5 class="modal-title modaltitle" id="TituloModalCentralizado">
+          Nova Postagem
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -170,42 +187,50 @@
 
       <div class="modal-body" id="modalheight">
         <div class="form-group">
-
-          <label for="titulo" class="modaltitle">Escolha um tema, ou <a data-dismiss="modal" routerLink='/tema'>cadastre um novo</a></label>
-          <select class="form-control" name="tema" id="tema" [(ngModel)]='idTema' (change)='findByIdTema()'>
-            <option *ngFor='let item of listaTema' value="{{item.id}}">{{item.nome}}</option>
+          <label for="titulo" class="modaltitle">Escolha um tema</label>
+          <select class="form-control" name="tema" id="tema" [(ngModel)]="idTema" (change)="findByIdTema()">
+            <option *ngFor="let item of listaTema" value="{{ item.id }}">
+              {{ item.nome }}
+            </option>
           </select>
 
-
           <label for="titulo" class="modaltitle">Título</label>
-          <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo" placeholder="Digite o título">
+          <input [(ngModel)]="postagem.titulo" type="text" class="form-control" id="titulo"
+            placeholder="Digite o título" />
 
           <label for="titulo" class="modaltitle">Texto</label>
-          <textarea  [(ngModel)]='postagem.conteudo' class="form-control" name="texto" id="texto" rows="3" placeholder="O que você está pensando, {{nome}}?"></textarea>
+          <textarea [(ngModel)]="postagem.conteudo" class="form-control" name="texto" id="texto" rows="3"
+            placeholder="O que você está pensando, {{ nome }}?"></textarea>
 
           <label for="titulo" class="modaltitle">Imagem</label>
-          <input [(ngModel)]='postagem.imagem' type="text" class="form-control" id="imagem" placeholder="Imagem">
+          <input [(ngModel)]="postagem.imagem" type="text" class="form-control" id="imagem" placeholder="Imagem" />
 
           <label for="titulo" class="modaltitle">Referências de apoio</label>
-          <input  [(ngModel)]='postagem.referencia' class="form-control" name="texto" id="texto" placeholder="Digite a fonte do conteúdo (opcional)">
+          <input [(ngModel)]="postagem.referencia" class="form-control" name="texto" id="texto"
+            placeholder="Digite a fonte do conteúdo (opcional)" />
 
           <label for="titulo" class="modaltitle">Link do video</label>
           <div class="container">
-             <div class="row">
-                <input [(ngModel)]="postagem.video" type="text" placeholder="Link do video" />
-                    <button (click)="videoembed()">Visualizar</button>
-              </div>
-              <div class="row config-video " *ngIf='videoSeguro != null'>
-                     <iframe width="560" height="315" [src]=videoSeguro title="YouTube video player" frameborder="0"       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
-              </div>
+            <div class="row">
+              <input [(ngModel)]="postagem.video" type="text" placeholder="Link do video" />
+              <button (click)="videoembed()">Visualizar</button>
+            </div>
+            <div class="row config-video" *ngIf="videoSeguro != null">
+              <iframe width="560" height="315" [src]="videoSeguro" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
           </div>
-
         </div>
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-success" data-dismiss="modal"(click)="publicar()">Publicar</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-success" data-dismiss="modal" (click)="publicar()">
+          Publicar
+        </button>
       </div>
     </div>
   </div>
