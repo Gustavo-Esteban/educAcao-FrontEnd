@@ -1,0 +1,59 @@
+<div class="mt-3">
+  <a routerLink='/home' class='ml-5 text-blue textleft'>
+    <i class="fa fa-sign-out" aria-hidden="true"></i>Home</a>
+</div>
+
+<div class="container d-flex justify-content-center">
+  <div class="col-md-9">
+
+
+
+
+    <div class="row align-items-center ">
+      <div class="card border-secondary mt-3 w-100" id="bodypostagem">
+        <div class="card-header">
+          <h1 class="text-center">{{tema.nome}}</h1>
+          <div class="card-text mt-3 mb-3">
+
+           <input type="text" class="form-control"  placeholder="Faça uma busca aqui!">
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="card mt-5 w-100 bodypost"  *ngFor='let i of tema.postagem | orderBy: key : reverse'>
+
+      <div class="card-header">
+             <div>
+                  <img src="{{i.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
+
+                  <span class="postfonth">{{i.usuario.nomeCompleto}}</span>
+                  <small class="text-muted ml-5">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i class="fa fa-clock-o" aria-hidden="true"></i>
+                  </small>
+
+
+                <h5  >{{i.tema}}</h5>
+
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title" >{{i.titulo}}</h5>
+                <p class="card-text" id="fontpostb">{{i.conteudo}}</p>
+                <img src="{{i.imagem}}" width="100%" height="100%" alt="">
+
+              </div>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+</div>

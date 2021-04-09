@@ -12,6 +12,7 @@ import { StartComponent } from './start/start.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TemaComponent } from './tema/tema.component';
+import { TemaViewComponent } from './view/tema-view/tema-view.component';
 
 const routes: Routes = [
 
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path: 'tema-delete/:id', component: TemaDeleteComponent},
   {path: 'postagem-edit/:id', component: PostagemEditComponent},
   {path: 'postagem-delete/:id', component: PostagemDeleteComponent},
-  {path: 'user-edit/:id', component: UserEditComponent }
+  {path: 'user-edit/:id', component: UserEditComponent },
+  {path: 'tema-view/:id', component: TemaViewComponent}
 ];
 
 @NgModule({
