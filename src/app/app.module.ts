@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -20,6 +21,8 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { TemaViewComponent } from './view/tema-view/tema-view.component';
+import { AlertasComponent } from './alertas/alertas.component';
+
 
 
 @NgModule({
@@ -37,7 +40,8 @@ import { TemaViewComponent } from './view/tema-view/tema-view.component';
     PostagemEditComponent,
     PostagemDeleteComponent,
     UserEditComponent,
-    TemaViewComponent
+    TemaViewComponent,
+    AlertasComponent
 
   ],
   imports: [
@@ -45,7 +49,9 @@ import { TemaViewComponent } from './view/tema-view/tema-view.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    OrderModule
+    OrderModule,
+    ModalModule.forRoot()
+
   ],
   providers: [{
     provide: LocationStrategy,

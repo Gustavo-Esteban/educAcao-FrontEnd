@@ -1,3 +1,4 @@
+import { AlertasService } from './../../service/alertas.service';
 import { PostagemService } from './../../service/postagem.service';
 import { Postagem } from './../../model/Postagem';
 import { Tema } from './../../model/Tema';
@@ -24,14 +25,15 @@ export class TemaViewComponent implements OnInit {
 
     private temaService: TemaService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
 
     if(environment.token == ''){
-      alert('Sua sessão inspirou. Faça o login novamente!')
+      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
       this.router.navigate(['/start'])
     }
 

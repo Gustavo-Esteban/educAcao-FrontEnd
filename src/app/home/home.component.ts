@@ -1,3 +1,4 @@
+import { AlertasService } from './../service/alertas.service';
 import { environment } from './../../environments/environment.prod';
 import { AuthService } from './../service/auth.service';
 import { PostagemService } from './../service/postagem.service';
@@ -46,7 +47,8 @@ export class HomeComponent implements OnInit {
     private postagemService: PostagemService,
     private temaService: TemaService,
     private authService: AuthService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private alertas: AlertasService
   ) {
 
   }
@@ -56,7 +58,7 @@ export class HomeComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token ==''){
-      alert('Sua sessão inspirou. Faça o login novamente!')
+      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
       this.router.navigate(['/start'])
     }
     this.getAllTema()
@@ -83,8 +85,6 @@ export class HomeComponent implements OnInit {
         i.videoSeguro = video
         this.listaPostagem.push(i)
       })
-
-      console.log(this.listaPostagem)
     })
 
   }
@@ -93,7 +93,7 @@ export class HomeComponent implements OnInit {
   findByIdUser(){
     this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
       this.user = resp
-      
+
       this.listUserPostagem = []
 
       this.user.postagem.forEach((i)=>{
@@ -118,7 +118,7 @@ export class HomeComponent implements OnInit {
 
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
-      alert('Postagem realizada com sucesso!')
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
 
       this.postagem = new Postagem()
       this.getAllPostagem()
