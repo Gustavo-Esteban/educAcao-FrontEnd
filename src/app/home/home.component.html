@@ -1,4 +1,4 @@
-<div class="container-fluid d-flex justify-content-center bg-dark" id="bb">
+<div class="container-fluid d-flex justify-content-center" id="bg" >
   <!-- Parte fixa esquerda Pag -->
   <div class="col-md-4 ">
 
@@ -6,8 +6,7 @@
 
       <div class="card mt-3" style="width: 18rem;">
         <div class="card-body" id="conteudocard">
-          <h5 class="card-title" id="titulobuscar"><img class="tm-img1" src="https://i.imgur.com/O5a4FxV.png" alt="">
-          </h5>
+          <p class="" id="titulobuscar">O que você está procurando?</p>
           <div class="input-group mb-3">
             <input type="text" class="form-control" placeholder="Pesquisar Postagem             🔎" aria-label="Recipient's username" [(ngModel)]='tituloPost' (keyup)='findByTituloPostagem()'
               aria-describedby="button-addon2">
@@ -86,7 +85,7 @@
 
           <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"       aria-labelledby="nav-todasPostagens-tab">
             <div class="row align-items-center">
-              <div class="card mt-5 w-100 bodypost" *ngFor='let i of listaPostagem | orderBy: key : reverse'>
+              <div class="card mt-5 mb-5 w-100 bodypost" *ngFor='let i of listaPostagem | orderBy: key : reverse'>
                 <div class="card-header">
 
                     <img src="{{i.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
@@ -101,13 +100,13 @@
 
                   <h5 class="card-title">{{i.titulo}}</h5>
                   <p class="card-text">{{i.conteudo}}</p>
-                  <img src="{{i.imagem}}" width="100%" height="100%" alt="">
+                  <img *ngIf='i.imagem != null' src="{{i.imagem}}" width="100%" height="100%" alt="">
 
-                  <!-- <div class="container">
+                  <div *ngIf='i.videoSeguro.changingThisBreaksApplicationSecurity != null' class="container">
                      <div class="row config-video ">
-                            <iframe width="560" height="315" [src]=videoSeguro title="YouTube video player" frameborder="0"       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
+                            <iframe width="560" height="315" [src]=i.videoSeguro title="YouTube video player" frameborder="0"       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
                      </div>
-                  </div> -->
+                  </div>
                 </div>
               </div>
             </div>
@@ -115,7 +114,7 @@
 
           <div class="tab-pane fade" id="minhasPostagens" role="tabpanel" aria-labelledby="nav-minhasPostagens-tab">
 
-            <div class="card mt-5 w-100 bodypost"  *ngFor='let i of user.postagem | orderBy: key : reverse'>
+            <div class="card mt-5 w-100 bodypost mb-5"  *ngFor='let i of listUserPostagem | orderBy: key : reverse'>
 
               <div class="card-header">
                 <div>
@@ -138,13 +137,13 @@
               <div class="card-body">
                 <h5 class="card-title" id="titulopost">{{i.titulo}}</h5>
                 <p class="card-text" id="fontpostb">{{i.conteudo}}</p>
-                <img src="{{i.imagem}}" width="100%" height="100%" alt="">
+                <img *ngIf='i.imagem != null' src="{{i.imagem}}" width="100%" height="100%" alt="">
 
-                <!-- <div class="container">
+                <div class="container" *ngIf='i.videoSeguro.changingThisBreaksApplicationSecurity != null'>
                    <div class="row config-video ">
-                          <iframe width="560" height="315" [src]=videoSeguro title="YouTube video player" frameborder="0"       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
+                          <iframe width="560" height="315" [src]=i.videoSeguro title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
                    </div>
-                </div> -->
+                </div>
 
               </div>
             </div>
@@ -196,7 +195,7 @@
                 <input [(ngModel)]="postagem.video" type="text" placeholder="Link do video" />
                     <button (click)="videoembed()">Visualizar</button>
               </div>
-              <div class="row config-video ">
+              <div class="row config-video " *ngIf='videoSeguro != null'>
                      <iframe width="560" height="315" [src]=videoSeguro title="YouTube video player" frameborder="0"       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"       allowfullscreen></iframe>
               </div>
           </div>

@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   listaPostagem: Postagem[]
   tituloPost: string
 
-
+  listUserPostagem: Postagem[]
   videoSeguro: any;
   videoNovo: string
 
@@ -75,36 +75,34 @@ export class HomeComponent implements OnInit {
       this.tema = resp
     })
   }
-  // getAllPostagem(){
-  //   this.postagemService.getAllPostagens().subscribe((resp:Postagem[])=>{
-  //     this.listaPostagem = []
-  //     resp.forEach((i)=>{
-  //       console.log(i.video)
-  //       let video = this.sanitizer.bypassSecurityTrustResourceUrl(i.video)
-
-  //       i.video = JSON.stringify(video)
-  //       console.log(i.video)
-
-  //       this.listaPostagem.push(i)
-  //     })
-
-
-  //   })
-
-  // }
-
   getAllPostagem(){
     this.postagemService.getAllPostagens().subscribe((resp:Postagem[])=>{
-      this.listaPostagem = resp
+      this.listaPostagem = []
+      resp.forEach((i)=>{
+        let video = this.sanitizer.bypassSecurityTrustResourceUrl(i.video)
+        i.videoSeguro = video
+        this.listaPostagem.push(i)
+      })
+
+      console.log(this.listaPostagem)
     })
 
   }
 
+
   findByIdUser(){
     this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
       this.user = resp
-    })
+      
+      this.listUserPostagem = []
 
+      this.user.postagem.forEach((i)=>{
+        let video = this.sanitizer.bypassSecurityTrustResourceUrl(i.video)
+        i.videoSeguro = video
+        this.listUserPostagem.push(i)
+      })
+
+    })
   }
 
   publicar(){
@@ -124,6 +122,7 @@ export class HomeComponent implements OnInit {
 
       this.postagem = new Postagem()
       this.getAllPostagem()
+      this.videoSeguro = ''
 
     })
   }
