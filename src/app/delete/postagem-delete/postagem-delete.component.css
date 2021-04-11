@@ -1,0 +1,74 @@
+#bg {
+  background: linear-gradient(180deg,#8C8C8C,#D9D9D9);
+}
+
+h1 {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 2px black ;
+  font-family:  Georgia, serif;
+  padding: 10px;
+}
+
+
+.font2-title {
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 2px black ;
+  font-family:  Georgia, serif;
+  padding: 10px;
+  font-style: oblique;
+  font-size: 20px;
+
+}
+
+.inputbody {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #a1a0a0c9;
+}
+
+
+#mtema {
+  text-align: center;
+  font-weight: bold;
+  text-align: center;
+  font-family: Georgia, serif;
+  color: #161616;
+  margin-top: 0px;
+}
+
+.color-header {
+  background-color: rgba(241, 241, 241, 0.952);
+}
+
+.bodypost {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.postfonth {
+  font-weight: bold;
+  color: #000000;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
+}
+
+.postfonth1 {
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
+}
+
+.font-button {
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px rgb(92, 92, 92);
+}
+
+
+

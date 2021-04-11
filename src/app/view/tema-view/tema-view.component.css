@@ -1,10 +1,60 @@
 .iconcard {
   height: 55px;
+  color: aliceblue;
 }
 
 .bg-fundo{
-  background-color: rgb(226, 228, 228);
+    background: linear-gradient(180deg,#222d30, #1d3036);
+
 }
 .bg-fundo1{
   background-color: white;
+}
+
+.bodypostagem {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#title-tema {
+  text-align: center;
+}
+
+.inputbody {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+  background-image: url('https://i.imgur.com/3dItROq.jpg');
+  background-size: 400px;
+}
+
+h1 {
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black;
+  font-family:  Georgia, serif;
+  padding: 10px;
+}
+
+.descricao-font {
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black ;
+  font-family:  Georgia, serif;
+}
+
+.postfonth {
+  font-weight: bold;
+  color: #000000;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
+}
+
+.postfonth1 {
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
 }

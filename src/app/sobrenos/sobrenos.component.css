@@ -3,7 +3,7 @@
   height: 75px;
 }
  body{
-  background: linear-gradient(180deg,#05235f, #42c1f3);
+  background: linear-gradient(180deg,#05235f, #42ABF3);
   color: white;
 
 
@@ -32,15 +32,15 @@
 
 .fotos{
   width: 250px;
-  height: 325px;
+  height: 320px;
   border-radius: 10%;
-
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
 }
 
 .flip-box{
   background-color: transparent;
   width: 250px;
-  height: 325px;
+  height: 320px;
 }
 
 .flip-box-inner{
@@ -88,7 +88,6 @@
   height: 30px;
 }
 
-
 a{
   margin-left: 12px;
   text-decoration: none;
@@ -104,4 +103,24 @@ a{
   to{
     transform: translateY(15px);
   }
+}
+
+p {
+  font-family: Helvetica, sans-serif	;
+  text-align: justify;
+  font-size: 16.5px;
+  margin: 17.5px;
+  font-style: oblique;
+  text-shadow: 0 0 10px #848484;
+}
+
+.title-inicial {
+  font-family: Georgia, serif;
+  font-weight:bold;
+  font-size: 40px;
+}
+
+.font-nome {
+  font-family: Georgia, serif;
+  text-shadow: 0.1em 0.1em 0.2em #848484;
 }

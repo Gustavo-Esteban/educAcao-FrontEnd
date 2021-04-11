@@ -16,7 +16,8 @@
   margin-top: 50px;
 }
 #bg {
-  background-color: #e9e9e9;
+  /* background-color: #e9e9e9; */
+  background-color: rgb(231, 236, 245);
 }
 
 .iconbuscar {
@@ -30,7 +31,7 @@ label {
   font-weight: bold;
 }
 
-#navstyle {
+.navstyle {
   font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
     serif;
   border-radius: 20px;
@@ -45,8 +46,8 @@ label {
 #titulobuscar,
 #titulopost {
   text-align: center;
-  font-weight: bolder;
-  font-family: Gill Sans, sans-serif;
+  font-weight: bold;
+  font-family: Georgia, serif;
 }
 
 .titulocard {
@@ -61,7 +62,8 @@ label {
   height: 45px;
 }
 .iconcard1 {
-  height: 35px;
+  height: 20px;
+  padding-bottom: 5px;
 }
 
 #bodypostagem,
@@ -82,7 +84,7 @@ label {
 
 .cardfont {
   text-decoration: none;
-  font-family: Trebuchet MS, sans-serif, Gill Sans, sans-serif;
+  font-family: Georgia, serif;
   color: #5c5d6d;
 }
 
@@ -116,22 +118,49 @@ label {
 
 .postfonth {
   font-weight: bold;
-  color: #424242;
-  padding-left: 10px;
+  color: #000000;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
 }
 
-#mtema {
+.postfonth1 {
+  font-weight: bold;
+  color: #000000;
   text-align: center;
-  padding-bottom: 0px;
+  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
+    serif;
   margin-bottom: 0px;
-  margin-top: 10px;
 }
 
-.fontpostb {
-  color: #1c1c1c;
-  font-family: Arial, Helvetica, sans-serif;
+.color-header {
+  background-color: rgba(241, 241, 241, 0.952);
+}
+
+.tema-font {
+  text-align: right;
+  font-size: small;
+  font-weight: bold;
+  font-family: Georgia, serif;
+  color: #a5a4a4d7;
+  margin-top: 15px;
+}
+
+.mtema {
+  text-align: right;
+  font-size: smaller;
+  font-weight: bold;
+  font-family: Georgia, serif;
+  color: #161616;
+  margin-top: 15px;
 }
 
 li{
   list-style-type: none;
 }
+
+.font-button {
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px rgb(92, 92, 92);
+}
+

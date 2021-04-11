@@ -9,7 +9,7 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link text-white" href="#sobre">Sobre o Projeto<span class="sr-only">(página atual)</span></a>
+          <a class="nav-link title-sobrenos" href="#sobre">Sobre o Projeto<span class="sr-only">(página atual)</span></a>
         </li>
       </ul>
       <div>
@@ -29,7 +29,7 @@
       <div class="row d-flex justify-content-center">
          <div class="col-md-7 text-white">
 
-           <h1 class="fs-40 ">Acesse sua nova comunidade de estudos! 📚🎓</h1>
+           <h1 class="fs-40 titleinicial">Acesse sua nova comunidade de estudos! 📚🎓</h1>
 
          </div>
       </div>
@@ -38,7 +38,6 @@
         <div class="col-md-7 text-white">
 
           <div class="form-group">
-
               <input [(ngModel)]='userLogin.email' type="email" class="form-control text-white " name="email" id="email" placeholder="" required>
               <label for="usuario">E-mail</label>
           </div>
@@ -81,7 +80,7 @@
 <div class="container-fluid bg-fundo2" id="sobre">
   <div class="row">
     <div class="col-md-12 d-flex justify-content-center">
-      <h1 class="text center text-white mt-3">Sobre o Projeto</h1>
+      <h1 class="text-center mt-3 font-weight-bold title-sobreprojeto">Sobre o Projeto</h1>
     </div>
   </div>
 </div>
@@ -92,12 +91,9 @@
       <img width="100%" height="100%"src="https://i.imgur.com/mfI4MBE.png" alt="">
     </div>
     <div class="col-md-8 mt-5 d-flex justify-content-center">
-      <h3 class="text-white">Todas as pessoas passam boa parte de suas vidas estudando: Seja para escola, faculdade, concursos ou vestibulares. Não teria sido mais fácil esse processo se tivéssemos uma ferramenta pensada nesses estudantes? Que facilitasse, democratizasse e organizasse o acesso à educação de qualidade?
+      <p class="font-sobrep">Todas as pessoas passam boa parte de suas vidas estudando: Seja para escola, faculdade, concursos ou vestibulares. Não teria sido mais fácil esse processo se tivéssemos uma ferramenta pensada nesses estudantes? Que facilitasse, democratizasse e organizasse o acesso à educação de qualidade?
 
-        Foi pensando nisso, e com os objetivos de desenvolvimento sustentável da ONU em mente, que nasceu o EducAção, um projeto que visa possibilitar acesso à uma fonte segura e confiável de estudos, para qualquer estudante, de qualquer classe social e escolaridade, de qualquer plataforma. Aqui, é possível discutir temas com outros estudantes que talvez tenham as mesmas dúvidas que você, compartilhar seu conhecimento e, assim, crescerem juntos.</h3>
-
-
-
+        Foi pensando nisso, e com os objetivos de desenvolvimento sustentável da ONU em mente, que nasceu o EducAção, um projeto que visa possibilitar acesso à uma fonte segura e confiável de estudos, para qualquer estudante, de qualquer classe social e escolaridade, de qualquer plataforma. Aqui, é possível discutir temas com outros estudantes que talvez tenham as mesmas dúvidas que você, compartilhar seu conhecimento e, assim, crescerem juntos.</p>
     </div>
   </div>
 
@@ -105,11 +101,13 @@
 
 
   <div class="row ">
-    <div class="col-md-6 text-center sobre1 ">
+    <div class="col-md-6 text-center align-self-center">
+      <div class="contentbottom"><p class="text-white mt-5 text-center cadastrarfont">Gostou do nosso projeto? Quer fazer parte e ajudar estudantes brasileiros a aprenderem mais? </p>
+      <a class="btn btn-outline-light"type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a></div>
 
-
-      <h1 class="sobre text-white">Saiba mais sobre nossos desenvolvedores</h1>
-      <a class="btn btn-outline-light mt-2" routerLink='/sobrenos'>Sobre Nós</a>
+      <div class="col align-self-end mt-5"><h1 class="sobre text-white font-family">Saiba mais sobre nossos desenvolvedores</h1>
+        <a class="btn btn-outline-light mt-2" routerLink='/sobrenos'>Sobre nós</a>
+      </div>
     </div>
 
     <div class="col-md-6 ">
@@ -117,10 +115,10 @@
     </div>
   </div>
 
-  <h5 class="text-white mt-5 text-center ">Gostou do nosso projeto? Quer fazer parte e ajudar estudantes brasileiros a aprenderem mais? </h5>
+  <!-- <h5 class="text-white mt-5 text-center ">Gostou do nosso projeto? Quer fazer parte e ajudar estudantes brasileiros a aprenderem mais? </h5>
       <a class="btn btn-outline-light botaoCa"type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
-
-  <div class="row mt-5 d-flex justify-content-center">
+ -->
+  <div class="row mt-2 d-flex justify-content-center">
     <div class="subir mb-5 ">
       <a class="text-white html" href="#inicio">
         <i class="fa fa-chevron-up" aria-hidden="true"></i>
@@ -218,7 +216,7 @@
       </div>
       <div class="modal-footer d-flex justify-content-center">
 
-      <button type="button" class="btn btn-info"  data-dismiss="modal" (click)='cadastrar()'>cadastrar</button>
+      <button type="button" class="btn btn-info"  data-dismiss="modal" (click)='cadastrar()'>Cadastrar</button>
       </div>
   </div>
   </div>

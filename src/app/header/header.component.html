@@ -21,17 +21,16 @@
           </a>
           <div class="dropdown-menu dropdown-menu-right dropmenu " aria-labelledby="navbarDropdown">
               <li class="nav-item pl-3">
-                 <a [routerLink]="['user-edit', id]" class="m-0 font-weight-bold text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar perfil</a>
+                 <a [routerLink]="['user-edit', id]" class="m-0 mb-2 text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar perfil</a>
               </li>
 
               <li *ngIf='auth.adm()' class="nav-item pl-3">
-                <a routerLink='/tema' class="m-0 font-weight-bold text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar tema</a>
+                <a routerLink='/tema' class="m-0 text-white fs-14"><i class="fa fa-paint-brush" aria-hidden="true"></i> Editar tema</a>
              </li>
-
+             <hr>
               <li>
                 <a (click)='sair()' class="m-3 mt-0 font-weight-bold text-white fs-14 "><i class="fa fa-sign-out" aria-hidden="true"></i> Sair </a>
               </li>
-
           </div>
         </li>
     </ul>

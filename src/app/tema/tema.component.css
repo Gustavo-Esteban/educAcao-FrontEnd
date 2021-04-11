@@ -5,3 +5,40 @@
 .fs-18 {
   font-size: 18pt;
 }
+
+.bg {
+ background-image: url('https://i.imgur.com/kbQlbqe.jpg');
+}
+
+.bg-2 {
+  background-color: rgb(231, 231, 231);
+}
+
+.font-title {
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black ;
+  font-family: Georgia, serif;
+  padding: 10px;
+}
+
+.font2-title {
+  color: black;
+  text-shadow: 2px 2px 2px whitesmoke ;
+  font-family:  Georgia, serif;
+  padding: 10px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.font-body {
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px black;
+}
+
+.font2-body {
+  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
+  color: black;
+  text-shadow: 2px 2px 2px whitesmoke ;
+  font-size: 18px;
+}

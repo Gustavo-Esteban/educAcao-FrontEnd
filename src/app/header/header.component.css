@@ -1,21 +1,22 @@
 .fs-16{
-    font-size: 16pt;
+  font-size: 16pt;
 }
 .fs-14{
-  font-size: 14pt;
+font-size: 14pt;
 }
 a{
-    cursor: pointer;
+cursor: pointer;
+font-family: Georgia, serif;
 }
 
 nav {
-  background-color: #030752;
+background-color: #030752;
 }
 
 
 .dropmenu {
-  background-color: #242761;
-  font-family: Arial, sans-serif	;
+background-color: #242761;
+
 
 }
 

@@ -1,59 +1,54 @@
 <div class="container-fluid bg-fundo">
 
-  <div >
-    <a routerLink='/home' class='ml-5 text-blue textleft'>
-      <i class="fa fa-sign-out" aria-hidden="true"></i>Home</a>
-  </div>
+  <a routerLink='/home' class='ml-5 text-white'>
+    <i class="fa fa-chevron-left mr-1" ></i> Home</a>
 
-  <div class="container d-flex justify-content-center">
-    <div class="col-md-9">
+<div class="container d-flex justify-content-center">
+  <div class="col-md-9">
 
-      <div class="row align-items-center ">
-        <div class="card border-secondary mt-3 w-100" id="bodypostagem">
-          <div class="card-header">
-            <h1 class="text-center"><img class="iconcard" src="{{tema.icon}}" alt="">{{tema.nome}}</h1>
-            <div class="card-text mt-3 mb-3">
+    <div class="row align-items-center">
+      <div class="card border-secondary mt-3 w-100 bodypostagem">
+        <div class="card-header inputbody">
+          <h1 class="text-center">{{tema.nome}}</h1>
+          <div class="card-text mt-3 mb-3">
 
-             <!-- <input type="text" class="form-control"  placeholder="Faça uma busca aqui!"> -->
+           <p class="text-center descricao-font">{{tema.descricao}}</p>
 
-             <p class="text-center">{{tema.descricao}}</p>
-
-            </div>
           </div>
         </div>
       </div>
-
-
-      <div class="card mt-5 w-100 bodypost"  *ngFor='let i of tema.postagem | orderBy: key : reverse'>
-
-        <div class="card-header bg-fundo1">
-               <div>
-                    <img src="{{i.usuario.foto}}" alt="imagem do user" width="50px" height="50px" class="img-fluid rounded-circle">
-
-                    <span class="postfonth">{{i.usuario.nomeCompleto}}</span>
-                    <small class="text-muted ml-5">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i class="fa fa-clock-o" aria-hidden="true"></i>
-                    </small>
-
-
-                  <h5  >{{i.tema}}</h5>
-
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title" >{{i.titulo}}</h5>
-                  <p class="card-text" id="fontpostb">{{i.conteudo}}</p>
-                  <img src="{{i.imagem}}" width="100%" height="100%" alt="">
-
-                </div>
-
-        </div>
-
-      </div>
-
     </div>
-  </div>
 
 
+    <div class="card mt-5 w-100 bodypostagem"  *ngFor='let i of tema.postagem | orderBy: key : reverse'>
+
+                 <div class="card-header bg-fundo1">
+
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="d-flex justify-content-center align-items-center">
+                      <div class="mr-2">
+                        <img class="rounded-circle" src="{{i.usuario.foto}}" alt="Imagem do user" width="50px"
+                          height="50px" class="img-fluid rounded-circle">
+                      </div>
+                      <div class="ml-2">
+                        <div class="h5 m-0 postfonth">{{i.usuario.nomeCompleto}}</div>
+                        <div class="h7 text-muted">
+                          <p class="text-muted">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h5 id="title-tema"> {{ i.tema}} </h5>
+                </div>
+
+              <div class="card-body">
+                <h5 class="card-title postfonth1" >{{i.titulo}}</h5>
+                <p class="card-text" >{{i.conteudo}}</p>
+                <img src="{{i.imagem}}" width="100%" height="100%" alt="">
+              </div>
+      </div>
+    </div>
+</div>
 
 </div>
 

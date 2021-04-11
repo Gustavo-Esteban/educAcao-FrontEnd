@@ -1,34 +1,42 @@
-<div class="container mt-5 mb-5">
+<div class="container-fluid" id="bg">
 
-  <div class="row">
-    <div class="col-md-12">
-      <h1 class="text-center text-secondary">Apagar Tema</h1>
-    </div>
-  </div>
+  <div class="row d-flex justify-content-center" id="r-p">
+    <div class="col-md-5 mt-5 inputbody">
 
-  <div class="row">
-    <div class="col-md-12">
-      <h4>Você tem certeza que deseja apagar esse tema? Todas as postagens relacionadas ao tema serão igualmente apagadas.</h4>
-    </div>
-  </div>
+          <div class="row">
+            <div class="col-md-12 mt-5">
+              <h1 class="text-center">Apagar Tema</h1>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-md-12">
+              <p class="p1">Você tem certeza que deseja apagar esse tema?</p>
+              <p class="p2">Todas as postagens relacionadas ao tema serão igualmente apagadas.</p>
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <h5 class="text-center text-primary">Tema: {{tema.nome}}</h5>
-    </div>
-  </div>
+          <div class="row" >
+            <div class="col-md-12">
+              <h5 class="text-center">Tema:</h5> <p class="p3">{{tema.nome}}</p>
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <h5 class="text-center text-primary">Descrição: {{tema.descricao}}</h5>
-    </div>
-  </div>
+          <div class="row mb-3">
+            <div class="col-md-12">
+              <h5 class="text-center">Descrição:</h5> <p class="p3">{{tema.descricao}}</p>
+            </div>
+          </div>
+          <hr>
 
-  <div class="row">
-    <div class="col-md-12 d-flex justify-content-center">
-      <button class="btn btn-danger mr-4" routerLink='/tema'>Não</button>
-      <button class="btn btn-success" (click)='apagar()'>Sim</button>
+          <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+              <button class="btn btn-danger mr-4 font-button" routerLink='/tema'><i class="fa fa-remove"></i> Não</button>
+              <button class="btn btn-success font-button" (click)='apagar()'><i class="fa fa-check"></i> Sim</button>
+            </div>
+          </div>
     </div>
   </div>
 
 </div>
+
