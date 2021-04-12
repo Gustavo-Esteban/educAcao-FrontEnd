@@ -41,7 +41,7 @@
             <div class="card-header">
               <p class="card-text mt-3 mb-3">
                 <img src="{{ foto }}" alt="imagem do user" width="50px" height="50px"
-                  class="img-fluid rounded-circle" />
+                  class="rounded-circle" />
 
                 <button type="button" class="btn btn-outline-secondary btn-md ml-4" style="width: 80%"
                   data-toggle="modal" data-target="#novaPostagem">
@@ -91,7 +91,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="mr-2">
                         <img class="rounded-circle" src="{{i.usuario.foto}}" alt="Imagem do user" width="50px"
-                          height="50px" class="img-fluid rounded-circle">
+                          height="50px" class="rounded-circle">
                       </div>
                       <div class="ml-2 mt-2">
                         <div class="h5 m-0 postfonth">{{i.usuario.nomeCompleto}}</div>
@@ -139,7 +139,7 @@
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="mr-2">
                         <img class="rounded-circle" width="45" src="{{foto}}" alt="Imagem do user" width="50px"
-                          height="50px" class="img-fluid rounded-circle">
+                          height="50px" class="rounded-circle">
                       </div>
                       <div class="ml-2 mt-2">
                         <div class="h5 m-0 postfonth">{{nome}}</div>
@@ -237,7 +237,7 @@
                   aria-hidden="true"></i> Visualizar
               </button>
             </div>
-            <div class="row config-video" *ngIf="videoSeguro != null">
+            <div class="row config-video" *ngIf="videoSeguro == ''|| videoSeguro != null">
               <iframe width="560" height="315" [src]="videoSeguro" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>

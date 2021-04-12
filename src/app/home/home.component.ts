@@ -120,9 +120,12 @@ export class HomeComponent implements OnInit {
       this.postagem = resp
       this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
 
+
+
       this.postagem = new Postagem()
       this.getAllPostagem()
       this.videoSeguro = ''
+      this.router.navigate(['/home'])
 
     })
   }

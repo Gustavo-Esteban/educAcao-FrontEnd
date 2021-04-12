@@ -1,3 +1,7 @@
+import { Usuario } from './../../model/Usuario';
+import { environment } from './../../../environments/environment.prod';
+
+import { AuthService } from './../../service/auth.service';
 import { AlertasService } from './../../service/alertas.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TemaService } from './../../service/tema.service';
@@ -6,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Postagem } from 'src/app/model/Postagem';
 import { Tema } from 'src/app/model/Tema';
-import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-postagem-edit',
@@ -20,6 +23,9 @@ export class PostagemEditComponent implements OnInit {
   tema: Tema = new Tema()
   listaTema: Tema[]
   idTema: number
+  idUser = environment.id
+  user: Usuario = new Usuario()
+  listUserPostagem: Postagem[]
 
   videoSeguro: any;
   videoNovo: string
@@ -27,6 +33,7 @@ export class PostagemEditComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private authService: AuthService,
     private postagemService: PostagemService,
     private temaService: TemaService,
     private sanitizer: DomSanitizer,
@@ -51,6 +58,21 @@ export class PostagemEditComponent implements OnInit {
   findByIdPostagem(id:number){
     this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) =>{
       this.postagem = resp
+    })
+  }
+
+  findByIdUser(){
+    this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
+      this.user = resp
+
+      this.listUserPostagem = []
+
+      this.user.postagem.forEach((i)=>{
+        let video = this.sanitizer.bypassSecurityTrustResourceUrl(i.video)
+        i.videoSeguro = video
+        this.listUserPostagem.push(i)
+      })
+
     })
   }
 
