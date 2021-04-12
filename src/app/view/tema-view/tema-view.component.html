@@ -44,8 +44,19 @@
               <div class="card-body">
                 <h5 class="card-title postfonth1" >{{i.titulo}}</h5>
                 <p class="card-text" >{{i.conteudo}}</p>
-                <img src="{{i.imagem}}" width="100%" height="100%" alt="">
+                <img *ngIf='i.imagem != null' src="{{i.imagem}}" width="100%" height="100%" alt="">
               </div>
+
+              <div class="container" *ngIf="i.videoSeguro.changingThisBreaksApplicationSecurity != null">
+                <div class="row config-video">
+                  <iframe width="560" height="315" [src]="i.videoSeguro" title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+                </div>
+              </div>
+
+
       </div>
     </div>
 </div>

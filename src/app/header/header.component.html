@@ -23,8 +23,8 @@
               <li class="nav-item pl-3">
                  <a [routerLink]="['user-edit', id]" class="m-0 mb-2 text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar perfil</a>
               </li>
-              <!-- *ngIf='auth.adm()' -->
-              <li class="nav-item pl-3">
+
+              <li *ngIf='auth.adm()' class="nav-item pl-3">
                 <a routerLink='/tema' class="m-0 text-white fs-14"><i class="fa fa-paint-brush" aria-hidden="true"></i> Editar tema</a>
              </li>
              <hr>

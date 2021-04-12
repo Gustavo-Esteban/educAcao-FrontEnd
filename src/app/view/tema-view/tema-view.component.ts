@@ -1,3 +1,4 @@
+import { DomSanitizer } from '@angular/platform-browser';
 import { AlertasService } from './../../service/alertas.service';
 import { PostagemService } from './../../service/postagem.service';
 import { Postagem } from './../../model/Postagem';
@@ -16,6 +17,7 @@ export class TemaViewComponent implements OnInit {
 
   tema: Tema = new Tema()
   idTema: number
+  listTemaPostagem : Postagem[]
 
 
   key = 'data'
@@ -26,7 +28,8 @@ export class TemaViewComponent implements OnInit {
     private temaService: TemaService,
     private router: Router,
     private route: ActivatedRoute,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -44,10 +47,18 @@ export class TemaViewComponent implements OnInit {
   }
 
   findByIdTema(id: number){
-    this.temaService.getByIdTema(id).subscribe((resp: Tema)=>[
+    this.temaService.getByIdTema(id).subscribe((resp: Tema)=>{
       this.tema = resp
 
-    ])
+      this.listTemaPostagem = []
+
+      this.tema.postagem.forEach((i)=>{
+        let video = this.sanitizer.bypassSecurityTrustResourceUrl(i.video)
+        i.videoSeguro = video
+        this.tema.postagem.push(i)
+      })
+
+    })
 
   }
 

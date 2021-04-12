@@ -1,4 +1,4 @@
-<div class="container-fluid bg-white">
+<div class="container-fluid" id="bg">
 
   <div class="row d-flex justify-content-center">
 
@@ -15,10 +15,10 @@
         <label for="titulo">Título</label>
         <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo">
 
-        <label for="titulo">Texto</label>
+        <label for="texto">Texto</label>
         <textarea [(ngModel)]="postagem.conteudo" class="form-control" name="texto" id="texto" rows="2"  placeholder="Digite um novo texto"></textarea>
 
-        <label for="titulo">Imagem</label>
+        <label for="imagem">Imagem</label>
         <input [(ngModel)]='postagem.imagem' type="text" class="form-control" id="imagem" placeholder="Altere o link para a imagem">
 
         <label for="titulo" class="modaltitle">Link do video</label>
@@ -35,8 +35,8 @@
           </div>
         </div>
 
-        <label for="titulo">Referências de apoio</label>
-        <input [(ngModel)]="postagem.referencia" type="text" class="form-control" name="texto" id="texto" placeholder="Altere a fonte do conteúdo">
+        <label for="referencia">Referências de apoio</label>
+        <input [(ngModel)]="postagem.referencia" type="text" class="form-control" name="texto" id="referencia" placeholder="Altere o link do conteúdo">
       </div>
 
 

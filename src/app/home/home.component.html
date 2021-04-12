@@ -40,8 +40,7 @@
           <div class="card border-secondary mt-3 w-100" id="bodypostagem">
             <div class="card-header">
               <p class="card-text mt-3 mb-3">
-                <img src="{{ foto }}" alt="imagem do user" width="50px" height="50px"
-                  class="rounded-circle" />
+                <img src="{{ foto }}" alt="imagem do user" width="50px" height="50px" class="rounded-circle" />
 
                 <button type="button" class="btn btn-outline-secondary btn-md ml-4" style="width: 80%"
                   data-toggle="modal" data-target="#novaPostagem">
@@ -87,8 +86,8 @@
               <div class="card border-secondary mt-3 mb-3 w-100 bodypost"
                 *ngFor="let i of listaPostagem | orderBy: key:reverse">
                 <div class="card-header color-header border-secondary">
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="d-flex justify-content-between align-items-center">
+                  <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-end">
                       <div class="mr-2">
                         <img class="rounded-circle" src="{{i.usuario.foto}}" alt="Imagem do user" width="50px"
                           height="50px" class="rounded-circle">
@@ -98,18 +97,21 @@
                         <div class="h7 text-muted">
                           <p class="text-muted">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i
                               class="fa fa-clock-o" aria-hidden="true"></i></p>
+
+
                         </div>
+
                       </div>
+                      <h5 class="mtema">
+                        <span class="tema-font">tema:</span> {{ i.tema.nome }} <img class="iconcard1"
+                          src="{{ i.tema.icon }}" alt="">
+                      </h5>
                     </div>
                   </div>
                 </div>
 
                 <div class="card-body">
                   <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
-                  <h5 class="mtema">
-                    <span class="tema-font">tema:</span> {{ i.tema.nome }} <img class="iconcard1"
-                      src="{{ i.tema.icon }}" alt="">
-                  </h5>
                   <p class="card-text">{{ i.conteudo }}</p>
                   <img *ngIf="i.imagem != null" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
@@ -120,6 +122,10 @@
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                     </div>
+                  </div>
+
+                  <div *ngIf="i.referencia != null">
+                    <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{ i.referencia }}" target="_blank">{{i.referencia }}</a>
                   </div>
                 </div>
               </div>
@@ -183,6 +189,10 @@
                         allowfullscreen></iframe>
                     </div>
                   </div>
+
+                  <div *ngIf="i.referencia != null">
+                    <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{i.referencia}}" target="_blank">{{i.referencia}}</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -211,7 +221,7 @@
 
       <div class="modal-body" id="modalheight">
         <div class="form-group">
-          <label for="titulo" class="modaltitle">Escolha um tema</label>
+          <label for="tema" class="modaltitle">Escolha um tema</label>
           <select class="form-control" name="tema" id="tema" [(ngModel)]="idTema" (change)="findByIdTema()">
             <option *ngFor="let item of listaTema" value="{{ item.id }}">
               {{ item.nome }}
@@ -222,11 +232,11 @@
           <input [(ngModel)]="postagem.titulo" type="text" class="form-control" id="titulo"
             placeholder="Digite o título" />
 
-          <label for="titulo" class="modaltitle">Texto</label>
+          <label for="texto" class="modaltitle">Texto</label>
           <textarea [(ngModel)]="postagem.conteudo" class="form-control" name="texto" id="texto" rows="3"
             placeholder="O que você está pensando, {{ nome }}?"></textarea>
 
-          <label for="titulo" class="modaltitle">Imagem</label>
+          <label for="imagem" class="modaltitle">Imagem</label>
           <input [(ngModel)]="postagem.imagem" type="text" class="form-control" id="imagem" placeholder="Imagem" />
 
           <label for="titulo" class="modaltitle">Link do video</label>
@@ -244,8 +254,9 @@
             </div>
           </div>
 
-          <label for="titulo" class="modaltitle">Referências de apoio</label>
-          <input [(ngModel)]="postagem.referencia" class="form-control" name="texto" id="texto" placeholder="Digite a fonte do conteúdo (opcional)" />
+          <label for="referencia" class="modaltitle">Referências de apoio</label>
+          <input [(ngModel)]="postagem.referencia" class="form-control" name="referencia" id="referencia"
+            placeholder="Digite a fonte do conteúdo (opcional)" />
 
         </div>
       </div>

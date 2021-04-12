@@ -40,7 +40,7 @@ export class PostagemEditComponent implements OnInit {
     private alertas: AlertasService
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
 
     window.scroll(0,0)
 
@@ -92,9 +92,12 @@ export class PostagemEditComponent implements OnInit {
   atualizar(){
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
+    this.postagem.video = this.videoNovo
 
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
       this.postagem = resp
+
+      console.log(this.postagem)
       this.alertas.showAlertSuccess('Postagem atualizada com sucesso')
       this.router.navigate(['/home'])
     })
@@ -105,4 +108,5 @@ export class PostagemEditComponent implements OnInit {
     this.videoNovo = this.postagem.video.replace("watch?v=", "embed/");
     this.videoSeguro = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoNovo);
   }
+
 }
