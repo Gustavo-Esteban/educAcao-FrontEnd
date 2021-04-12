@@ -86,8 +86,8 @@
               <div class="card border-secondary mt-3 mb-3 w-100 bodypost"
                 *ngFor="let i of listaPostagem | orderBy: key:reverse">
                 <div class="card-header color-header border-secondary">
-                  <div class="d-flex justify-content-between">
-                    <div class="d-flex justify-content-end">
+                  <div class=" d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center ">
                       <div class="mr-2">
                         <img class="rounded-circle" src="{{i.usuario.foto}}" alt="Imagem do user" width="50px"
                           height="50px" class="rounded-circle">
@@ -97,14 +97,15 @@
                         <div class="h7 text-muted">
                           <p class="text-muted">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i
                               class="fa fa-clock-o" aria-hidden="true"></i></p>
-
-
-                        </div>
-
+                          </div>
                       </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-end">
                       <h5 class="mtema">
-                        <span class="tema-font">tema:</span> {{ i.tema.nome }} <img class="iconcard1"
-                          src="{{ i.tema.icon }}" alt="">
+                        <span class="tema-font">tema:</span> {{ i.tema.nome }} <img src="{{ i.tema.icon }}"
+                          class="iconcard1">
                       </h5>
                     </div>
                   </div>
@@ -124,9 +125,9 @@
                     </div>
                   </div>
 
-                  <div *ngIf="i.referencia != null">
+                  <!-- <div *ngIf="i.referencia != null">
                     <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{ i.referencia }}" target="_blank">{{i.referencia }}</a>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -168,16 +169,20 @@
                             class="fa fa-trash-o" aria-hidden="true"></i></a>
                       </div>
                     </div>
+
+
+
                   </div>
+                  <h5 class="mtema m-0">
+                    <span class="tema-font">tema:</span> {{ i.tema.nome }} <img src="{{ i.tema.icon }}"
+                      class="iconcard1">
+                  </h5>
                 </div>
 
 
                 <div class="card-body">
                   <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
-                  <h5 class="mtema">
-                    <span class="tema-font">tema:</span> {{ i.tema.nome }} <img src="{{ i.tema.icon }}"
-                      class="iconcard1">
-                  </h5>
+
                   <p class="card-text">{{ i.conteudo }}</p>
                   <img *ngIf="i.imagem != null" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
@@ -190,9 +195,9 @@
                     </div>
                   </div>
 
-                  <div *ngIf="i.referencia != null">
+                  <!-- <div *ngIf="i.referencia != null">
                     <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{i.referencia}}" target="_blank">{{i.referencia}}</a>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -254,9 +259,9 @@
             </div>
           </div>
 
-          <label for="referencia" class="modaltitle">Referências de apoio</label>
+          <!-- <label for="referencia" class="modaltitle">Referências de apoio</label>
           <input [(ngModel)]="postagem.referencia" class="form-control" name="referencia" id="referencia"
-            placeholder="Digite a fonte do conteúdo (opcional)" />
+            placeholder="Digite a fonte do conteúdo (opcional)" /> -->
 
         </div>
       </div>

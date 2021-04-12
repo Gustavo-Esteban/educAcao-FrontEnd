@@ -42,8 +42,6 @@ export class TemaViewComponent implements OnInit {
 
     this.idTema = this.route.snapshot.params['id']
     this.findByIdTema(this.idTema)
-
-
   }
 
   findByIdTema(id: number){
@@ -55,11 +53,10 @@ export class TemaViewComponent implements OnInit {
       this.tema.postagem.forEach((i)=>{
         let video = this.sanitizer.bypassSecurityTrustResourceUrl(i.video)
         i.videoSeguro = video
-        this.tema.postagem.push(i)
+        this.listTemaPostagem.push(i)
       })
 
     })
-
   }
 
 }
