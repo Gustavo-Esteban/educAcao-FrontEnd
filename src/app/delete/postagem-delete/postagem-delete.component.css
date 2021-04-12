@@ -5,7 +5,6 @@
 h1 {
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px 2px black ;
-  font-family:  Georgia, serif;
   padding: 10px;
 }
 
@@ -13,7 +12,6 @@ h1 {
 .font2-title {
   color: rgb(255, 255, 255);
   text-shadow: 2px 2px 2px black ;
-  font-family:  Georgia, serif;
   padding: 10px;
   font-style: oblique;
   font-size: 20px;
@@ -32,7 +30,6 @@ h1 {
   text-align: center;
   font-weight: bold;
   text-align: center;
-  font-family: Georgia, serif;
   color: #161616;
   margin-top: 0px;
 }
@@ -52,20 +49,15 @@ h1 {
 .postfonth {
   font-weight: bold;
   color: #000000;
-  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
-    serif;
 }
 
 .postfonth1 {
   font-weight: bold;
   color: #000000;
   text-align: center;
-  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
-    serif;
 }
 
 .font-button {
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
   color: whitesmoke;
   text-shadow: 2px 2px 2px rgb(92, 92, 92);
 }

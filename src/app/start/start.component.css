@@ -132,13 +132,11 @@ margin-top:275px;
 }
 
 .titleinicial, .title-sobreprojeto {
-  font-family: Bookman, URW Bookman L, serif;
   color:aliceblue;
   padding-top: 15px;
 }
 
 .cadastrarfont {
-  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
   text-align: justify;
   font-size: 22px;
   padding: 25px;
@@ -146,15 +144,10 @@ margin-top:275px;
   margin-bottom: 0px;
 }
 
-.font-family {
-  font-family: New Century Schoolbook, TeX Gyre Schola, serif;
-}
-
 .font-sobrep {
-  font-family: Times, Times New Roman, serif;
   color:#F2F2F2;
   text-align: justify;
-  font-size: 20.5px;
+  font-size: 23.5px;
   margin: 20px;
   margin-top: 40px;
   margin-bottom: 5px;
@@ -163,7 +156,7 @@ margin-top:275px;
 li>a {
   color:#BDBDBD;
   font-weight: bold;
-  font-family: Times New Roman, serif;
+  font-size: 20px;
 }
 
 .contentbottom {

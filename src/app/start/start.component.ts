@@ -73,4 +73,8 @@ export class StartComponent implements OnInit {
     })
   }
 
+  esqueceuSenha(){
+    this.alertas.showAlertSuccess('Email enviado com sucesso!')
+  }
+
 }

@@ -5,13 +5,11 @@
 
 label {
   color: whitesmoke;
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
   text-align: center;
 }
 
 h1 {
   color: whitesmoke;
-  font-family:  Georgia, serif;
   padding: 10px;
 
 }
@@ -25,7 +23,6 @@ h1 {
 }
 
 .font-button {
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
   color: whitesmoke;
   text-shadow: 2px 2px 2px rgb(92, 92, 92);
 }

@@ -4,7 +4,6 @@
 
 h1 {
   color: #000000;
-  font-family:  Georgia, serif;
   padding: 10px;
 
 }
@@ -19,12 +18,10 @@ h1 {
 
 label {
   color: black;
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
   text-align: center;
 }
 
 .font-button {
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
   color: whitesmoke;
   text-shadow: 2px 2px 2px rgb(92, 92, 92);
 }

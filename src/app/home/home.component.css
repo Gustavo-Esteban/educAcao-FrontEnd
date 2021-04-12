@@ -26,14 +26,10 @@
 
 label {
   color: #2e2e2e;
-  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
-    serif;
   font-weight: bold;
 }
 
 .navstyle {
-  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
-    serif;
   border-radius: 20px;
   color: #151515;
 }
@@ -47,15 +43,12 @@ label {
 #titulopost {
   text-align: center;
   font-weight: bold;
-  font-family: Georgia, serif;
 }
 
 .titulocard {
   text-align: center;
   font-weight: bolder;
   color: #151515;
-  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
-    serif;
 }
 
 .iconcard {
@@ -84,7 +77,6 @@ label {
 
 .cardfont {
   text-decoration: none;
-  font-family: Georgia, serif;
   color: #5c5d6d;
 }
 
@@ -119,16 +111,12 @@ label {
 .postfonth {
   font-weight: bold;
   color: #000000;
-  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
-    serif;
 }
 
 .postfonth1 {
   font-weight: bold;
   color: #000000;
   text-align: center;
-  font-family: Baskerville, Baskerville Old Face, Garamond, Times New Roman,
-    serif;
   margin-bottom: 0px;
 }
 
@@ -140,7 +128,6 @@ label {
   text-align: right;
   font-size: small;
   font-weight: bold;
-  font-family: Georgia, serif;
   color: #a5a4a4d7;
   margin-top: 15px;
 }
@@ -149,7 +136,6 @@ label {
   text-align: right;
   font-size: smaller;
   font-weight: bold;
-  font-family: Georgia, serif;
   color: #161616;
   margin-top: 15px;
 }
@@ -159,8 +145,10 @@ li{
 }
 
 .font-button {
-  font-family: 'Baskerville', 'Baskerville Old Face', 'Garamond', 'Times New Roman', serif;
   color: whitesmoke;
   text-shadow: 2px 2px 2px rgb(92, 92, 92);
 }
 
+.close{
+  color: white;
+}
