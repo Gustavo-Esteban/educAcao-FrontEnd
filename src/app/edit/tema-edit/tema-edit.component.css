@@ -1,20 +1,20 @@
 .bg {
-  background: linear-gradient(180deg,#2B1B1C, #372522);
+  background-color: rgb(231, 236, 245);
 
 }
 
 label {
-  color: whitesmoke;
+
   text-align: center;
-  padding-bottom: 10px;
-  padding-top: 10px;
+
+
 }
 
 
 h1 {
-  color: whitesmoke;
-  text-shadow: 2px 2px 2px black ;
-  padding: 10px;
+
+  /* text-shadow: 2px 2px 2px black ; */
+
 }
 
 
@@ -22,7 +22,7 @@ h1 {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   padding: 20px;
-  background-image: url('https://i.imgur.com/TT90TEJ.jpg');
+  background-color: white;
   background-size: 955px;
 }
 
