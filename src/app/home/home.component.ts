@@ -141,7 +141,12 @@ export class HomeComponent implements OnInit {
     }
     else{
       this.postagemService.getByTituloPostagem(this.tituloPost).subscribe((resp: Postagem[])=>{
-        this.listaPostagem = resp
+        this.listaPostagem = []
+    resp.forEach((i)=>{
+      let video = this.sanitizer.bypassSecurityTrustResourceUrl(i.video)
+      i.videoSeguro = video
+      this.listaPostagem.push(i)
+    })
       })
     }
 
@@ -149,3 +154,5 @@ export class HomeComponent implements OnInit {
 
 
 }
+
+
