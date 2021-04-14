@@ -1,4 +1,4 @@
-import { AlertasService } from './../../service/alertas.service';
+import  Swal  from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tema } from 'src/app/model/Tema';
@@ -17,8 +17,7 @@ export class TemaEditComponent implements OnInit {
   constructor(
     private temaService: TemaService,
     private router: Router,
-    private route: ActivatedRoute,
-    private alertas: AlertasService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -26,7 +25,13 @@ export class TemaEditComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token ==''){
-      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/start'])
     }
 
@@ -43,7 +48,13 @@ export class TemaEditComponent implements OnInit {
   atualizar(){
     this.temaService.putTema(this.tema).subscribe((resp: Tema)=>{
       this.tema = resp
-      this.alertas.showAlertSuccess('Tema atualizado com sucesso!')
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Tema atualizado com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/tema'])
     })
 

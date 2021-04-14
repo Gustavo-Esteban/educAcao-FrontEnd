@@ -1,4 +1,4 @@
-import { AlertasService } from './../../service/alertas.service';
+import  Swal  from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tema } from 'src/app/model/Tema';
@@ -19,8 +19,7 @@ export class TemaDeleteComponent implements OnInit {
   constructor(
     private TemaService: TemaService,
     private router: Router,
-    private route: ActivatedRoute,
-    private alertas: AlertasService
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -28,7 +27,13 @@ export class TemaDeleteComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token == ''){
-      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/start'])
     }
 
@@ -45,7 +50,14 @@ export class TemaDeleteComponent implements OnInit {
 
   apagar(){
     this.TemaService.deleteTema(this.idTema).subscribe(()=>{
-      this.alertas.showAlertSuccess('Tema apagado com sucesso!')
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Tema apagado com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+
       this.router.navigate(['/tema'])
     })
 

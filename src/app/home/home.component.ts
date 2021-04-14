@@ -1,4 +1,4 @@
-import { AlertasService } from './../service/alertas.service';
+import Swal  from 'sweetalert2';
 import { environment } from './../../environments/environment.prod';
 import { AuthService } from './../service/auth.service';
 import { PostagemService } from './../service/postagem.service';
@@ -8,8 +8,6 @@ import { Router } from '@angular/router';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
-
-
 import { DomSanitizer } from "@angular/platform-browser";
 
 @Component({
@@ -38,6 +36,11 @@ export class HomeComponent implements OnInit {
   foto = environment.foto
   nome = environment.nome
 
+  imagemValida = false
+  conteudoValido = false
+  tituloValido = false
+
+
   key = 'data'
   reverse = true
 
@@ -47,8 +50,7 @@ export class HomeComponent implements OnInit {
     private postagemService: PostagemService,
     private temaService: TemaService,
     private authService: AuthService,
-    private sanitizer: DomSanitizer,
-    private alertas: AlertasService
+    private sanitizer: DomSanitizer
   ) {
 
   }
@@ -57,13 +59,46 @@ export class HomeComponent implements OnInit {
 
     window.scroll(0,0)
 
-    if(environment.token ==''){
-      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
+    if(environment.token == ''){
+
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+
       this.router.navigate(['/start'])
     }
     this.getAllTema()
     this.getAllPostagem()
 
+  }
+
+  validaTitulo(event: any) {
+    this.tituloValido = this.validar(event.target.value.length < 2 || event.target.value.length > 100, event)
+  }
+
+  validaConteudo(event: any) {
+    this.conteudoValido = this.validar( event.target.value.length > 100, event)
+  }
+
+  validaImagem(event: any) {
+    let regex = /\.(jpe?g|png)$/i
+    this.imagemValida = this.validar(!regex.test(event.target.value), event)
+  }
+  validar(condicao: boolean, event: any) {
+    let valido = false
+    if (condicao) {
+      event.target.classList.remove("is-valid")
+      event.target.classList.add("is-invalid")
+    } else {
+      event.target.classList.remove("is-invalid")
+      event.target.classList.add("is-valid")
+      valido = true
+    }
+    return valido
   }
 
   getAllTema(){
@@ -89,7 +124,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-
   findByIdUser(){
     this.authService.getByIdUser(this.idUser).subscribe((resp: Usuario)=>{
       this.user = resp
@@ -114,20 +148,24 @@ export class HomeComponent implements OnInit {
 
     this.postagem.video = this.videoNovo
 
-
-
     this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem)=>{
       this.postagem = resp
-      this.alertas.showAlertSuccess('Postagem realizada com sucesso!')
 
-
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Postagem realizada com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
 
       this.postagem = new Postagem()
-      this.getAllPostagem()
+      this.videoNovo = ''
       this.videoSeguro = ''
-      this.router.navigate(['/home'])
+      this.getAllPostagem()
 
     })
+
   }
 
   videoembed() {
@@ -152,7 +190,4 @@ export class HomeComponent implements OnInit {
 
   }
 
-
 }
-
-

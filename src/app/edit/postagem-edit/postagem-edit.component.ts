@@ -1,8 +1,7 @@
+import  Swal  from 'sweetalert2';
 import { Usuario } from './../../model/Usuario';
 import { environment } from './../../../environments/environment.prod';
-
 import { AuthService } from './../../service/auth.service';
-import { AlertasService } from './../../service/alertas.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { TemaService } from './../../service/tema.service';
 import { PostagemService } from './../../service/postagem.service';
@@ -36,8 +35,7 @@ export class PostagemEditComponent implements OnInit {
     private authService: AuthService,
     private postagemService: PostagemService,
     private temaService: TemaService,
-    private sanitizer: DomSanitizer,
-    private alertas: AlertasService
+    private sanitizer: DomSanitizer
   ) { }
 
   ngOnInit() {
@@ -45,7 +43,13 @@ export class PostagemEditComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token ==''){
-      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/start'])
     }
 
@@ -98,7 +102,14 @@ export class PostagemEditComponent implements OnInit {
       this.postagem = resp
 
       console.log(this.postagem)
-      this.alertas.showAlertSuccess('Postagem atualizada com sucesso')
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Postagem atualizada com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+
       this.router.navigate(['/home'])
     })
 

@@ -226,7 +226,7 @@
 
       <div class="modal-body" id="modalheight">
         <div class="form-group">
-          <label for="tema" class="modaltitle">Escolha um tema</label>
+          <label for="tema" class="modaltitle">Escolha um tema:</label>
           <select class="form-control" name="tema" id="tema" [(ngModel)]="idTema" (change)="findByIdTema()">
             <option *ngFor="let item of listaTema" value="{{ item.id }}">
               {{ item.nome }}
@@ -234,15 +234,15 @@
           </select>
 
           <label for="titulo" class="modaltitle">Título</label>
-          <input [(ngModel)]="postagem.titulo" type="text" class="form-control" id="titulo"
+          <input [(ngModel)]="postagem.titulo" (keyup)='validaTitulo($event)' type="text" class="form-control" id="titulo"
             placeholder="Digite o título" />
 
           <label for="texto" class="modaltitle">Texto</label>
-          <textarea [(ngModel)]="postagem.conteudo" class="form-control" name="texto" id="texto" rows="3"
+          <textarea [(ngModel)]="postagem.conteudo" (keyup)='validaConteudo($event)' class="form-control" name="texto" id="texto" rows="3"
             placeholder="O que você está pensando, {{ nome }}?"></textarea>
 
           <label for="imagem" class="modaltitle">Imagem</label>
-          <input [(ngModel)]="postagem.imagem" type="text" class="form-control" id="imagem" placeholder="Imagem" />
+          <input [(ngModel)]="postagem.imagem" (keyup)='validaImagem($event)' type="text" class="form-control" id="imagem" placeholder="Imagem" />
 
           <label for="titulo" class="modaltitle">Link do video</label>
           <div class="container">
@@ -252,7 +252,7 @@
                   aria-hidden="true"></i> Visualizar
               </button>
             </div>
-            <div class="row config-video" *ngIf="videoSeguro == ''|| videoSeguro != null">
+            <div class="row config-video" *ngIf="!(videoSeguro == ''|| videoSeguro == null)">
               <iframe width="560" height="315" [src]="videoSeguro" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>

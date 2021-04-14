@@ -49,7 +49,6 @@
 
            <button class="btn btn-success form-control mt-3" (click)='entrar()'>Entrar</button>
 
-
            <p class="text-center mt-2">
             <a class='text-white ' type="submit" data-toggle="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
           </p>
@@ -61,7 +60,6 @@
           </p>
 
         </div>
-
 
       </div>
 
@@ -97,9 +95,6 @@
     </div>
   </div>
 
-
-
-
   <div class="row ">
     <div class="col-md-6 text-center align-self-center">
       <div class="contentbottom"><p class="text-white mt-5 text-center cadastrarfont">Gostou do nosso projeto? Quer fazer parte e ajudar estudantes brasileiros a aprenderem mais? </p>
@@ -115,9 +110,7 @@
     </div>
   </div>
 
-  <!-- <h5 class="text-white mt-5 text-center ">Gostou do nosso projeto? Quer fazer parte e ajudar estudantes brasileiros a aprenderem mais? </h5>
-      <a class="btn btn-outline-light botaoCa"type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
- -->
+
   <div class="row mt-2 d-flex justify-content-center">
     <div class="subir mb-5 ">
       <a class="text-white html" href="#inicio">
@@ -125,8 +118,6 @@
       </a>
     </div>
   </div>
-
-
 
 </div>
 <!-- /informações sobre EducAcao -->
@@ -187,29 +178,29 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-              <input [(ngModel)]='user.nomeCompleto' type="text" name="nomeCompleto" id="nomeCompleto" class="form-control text-info" required >
+              <input [(ngModel)]='user.nomeCompleto' (keyup)='validaNome($event)' type="text" name="nomeCompleto" id="nomeCompleto" class="form-control text-info" required >
               <label for="nomeCompleto" >Nome Completo:</label><br>
           </div>
 
 
           <div class="form-group">
-              <input [(ngModel)]='user.email' type="email" class="form-control text-info" name="emailModalCadastrar" id="emailModalCadastrar" placeholder="" required>
+              <input [(ngModel)]='user.email' (keyup)='validaEmail($event)' type="email" class="form-control text-info" name="emailModalCadastrar" id="emailModalCadastrar" placeholder="" required>
               <label for="email">E-mail:</label>
           </div>
 
           <div class="form-group">
-            <input [(ngModel)]='user.foto' class="form-control text-info" type="text" name="foto" id="foto" placeholder="" required>
+            <input [(ngModel)]='user.foto' (keyup)='validaFoto($event)' class="form-control text-info" type="text" name="foto" id="foto" placeholder="" required>
             <label for="foto">Link da Foto</label>
 
           </div>
 
           <div class="form-group">
-            <input (input)='confirmSenha($event)' class="form-control text-info" type="password" name="senhaModalCadastrar" id="senhaModalCadastrar" placeholder="" required>
+            <input (keyup)='validaSenha($event)' class="form-control text-info" type="password" name="senhaModalCadastrar" id="senhaModalCadastrar" placeholder="" required>
             <label for="senha">Senha</label>
           </div>
 
           <div class="form-group">
-            <input [(ngModel)]='user.senha' class="form-control text-info" type="password" name="confirmSenha" id="confirmSenha" placeholder="" required>
+            <input [(ngModel)]='user.senha' (keyup)='validaConfirmaSenha($event)' class="form-control text-info" type="password" name="confirmSenha" id="confirmSenha" placeholder="" required>
             <label for="confirmSenha">Confirmar Senha</label>
           </div>
         </form>
@@ -227,7 +218,7 @@
 <!-- Modal Recuperar Senha-->
 <div class="modal fade bg-fundo" id="modalRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-  <div class="modal-content bg-fundo text-info">
+  <div class="modal-content bg-white text-info">
       <div class="modal-header">
       <h5 class="modal-title" id="TituloModalCentralizado"><img class="tm-img1 ml-3" src="https://i.imgur.com/NhBWVw2.png" alt=""> Recuperar Senha</h5>
       <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
@@ -240,8 +231,8 @@
               <label for="email" >Digite seu endereço de e-mail:</label>
           </div>
       </div>
-      <div class="modal-footer">
-      <button type="button" class="btn btn-success" data-dismiss="modal" (click)='esqueceuSenha()'>Recuperar Senha</button>
+      <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-info" data-dismiss="modal" (click)='esqueceuSenha()'>Recuperar Senha</button>
       </div>
   </div>
   </div>

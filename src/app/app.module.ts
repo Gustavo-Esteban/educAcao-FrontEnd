@@ -21,7 +21,7 @@ import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delet
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { TemaViewComponent } from './view/tema-view/tema-view.component';
-import { AlertasComponent } from './alertas/alertas.component';
+
 
 
 
@@ -40,8 +40,8 @@ import { AlertasComponent } from './alertas/alertas.component';
     PostagemEditComponent,
     PostagemDeleteComponent,
     UserEditComponent,
-    TemaViewComponent,
-    AlertasComponent
+    TemaViewComponent
+
 
   ],
   imports: [

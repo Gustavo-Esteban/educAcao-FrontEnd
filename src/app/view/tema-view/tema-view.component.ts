@@ -1,6 +1,5 @@
+import Swal  from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AlertasService } from './../../service/alertas.service';
-import { PostagemService } from './../../service/postagem.service';
 import { Postagem } from './../../model/Postagem';
 import { Tema } from './../../model/Tema';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -28,7 +27,6 @@ export class TemaViewComponent implements OnInit {
     private temaService: TemaService,
     private router: Router,
     private route: ActivatedRoute,
-    private alertas: AlertasService,
     private sanitizer: DomSanitizer
   ) { }
 
@@ -36,7 +34,13 @@ export class TemaViewComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token == ''){
-      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/start'])
     }
 

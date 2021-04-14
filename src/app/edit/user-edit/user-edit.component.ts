@@ -1,4 +1,4 @@
-import { AlertasService } from './../../service/alertas.service';
+import Swal from 'sweetalert2';
 import { Usuario } from './../../model/Usuario';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/service/auth.service';
@@ -20,14 +20,20 @@ export class UserEditComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
-    private router: Router,
-    private alertas: AlertasService
+    private router: Router
   ) { }
 
   ngOnInit() {
     window.scroll(0,0)
 
     if(environment.token == ''){
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/header'])
     }
 
@@ -46,12 +52,26 @@ export class UserEditComponent implements OnInit {
   atualizar(){
 
     if(this.user.senha != this.confirmarSenha){
-      this.alertas.showAlertDanger('A senhas estão incorretas.')
+      Swal.fire({
+        icon: 'error',
+        title: 'As senhas estão incorretas',
+        text: 'Tente novamente',
+        showConfirmButton: false,
+        timer: 2000
+      })
+
     } else{
       this.authService.atualizar(this.user).subscribe((resp: Usuario) => {
           this.user = resp
           this.router.navigate(['/start'])
-          this.alertas.showAlertSuccess('Usuário atualizado com sucesso, faça o login novamente.')
+          Swal.fire({
+            icon: 'success',
+            title: 'Usuário atualizado com sucesso!',
+            text: 'Faça o login novamente',
+            showConfirmButton: false,
+            timer: 2000
+          })
+
           environment.token = ''
           environment.nome = ''
           environment.foto = ''

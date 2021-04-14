@@ -113,22 +113,12 @@ footer{
   padding: 13px;
 }
 
-/* .sobre{
-margin-top:275px;
-}
- */
-
-
 .subir{
   animation: is-bouncing1 0.7s ease alternate infinite;
   display: grid;
   height: 30px;
 }
 
-/* .botaoCa{
-  margin-left: 600px;
-}
- */
 @keyframes is-bouncing1 {
   to{
     transform: translateY(15px);
@@ -151,7 +141,7 @@ margin-top:275px;
 .font-sobrep {
   color:#F2F2F2;
   text-align: justify;
-  font-size: 23.5px;
+  font-size: 21px;
   margin: 20px;
   margin-top: 40px;
   margin-bottom: 5px;

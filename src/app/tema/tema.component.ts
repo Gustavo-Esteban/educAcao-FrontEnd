@@ -1,4 +1,4 @@
-import { AlertasService } from './../service/alertas.service';
+import Swal from 'sweetalert2';
 import { TemaService } from './../service/tema.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -17,8 +17,7 @@ export class TemaComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private temaService: TemaService,
-    private alertas: AlertasService
+    private temaService: TemaService
   ) { }
 
   ngOnInit() {
@@ -26,7 +25,13 @@ export class TemaComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token ==''){
-      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/start'])
     }
     this.findAllTema()
@@ -40,7 +45,13 @@ export class TemaComponent implements OnInit {
   cadastrar(){
     this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
       this.tema = resp
-      this.alertas.showAlertSuccess( 'tema cadastrado com sucesso!')
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Tema cadastrado com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.findAllTema()
       this.tema = new Tema()
     })

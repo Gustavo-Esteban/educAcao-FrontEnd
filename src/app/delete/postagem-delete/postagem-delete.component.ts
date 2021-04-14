@@ -1,4 +1,4 @@
-import { AlertasService } from './../../service/alertas.service';
+import  Swal  from 'sweetalert2';
 import { PostagemService } from './../../service/postagem.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -18,8 +18,7 @@ export class PostagemDeleteComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private postagemService: PostagemService,
-    private alertas: AlertasService
+    private postagemService: PostagemService
   ) { }
 
   ngOnInit() {
@@ -27,7 +26,13 @@ export class PostagemDeleteComponent implements OnInit {
     window.scroll(0,0)
 
     if(environment.token ==''){
-      this.alertas.showAlertInfo('Sua sessão inspirou. Faça o login novamente!')
+      Swal.fire({
+        icon: 'info',
+        title: 'Sua sessão inspirou',
+        text: 'Faça o login novamente!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/start'])
     }
 
@@ -43,7 +48,13 @@ export class PostagemDeleteComponent implements OnInit {
 
   apagar(){
     this.postagemService.deletePostagem(this.idPost).subscribe(()=>{
-      this.alertas.showAlertSuccess('Postagem apagada com sucesso!')
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Postagem apagada com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
       this.router.navigate(['/home'])
     })
 
