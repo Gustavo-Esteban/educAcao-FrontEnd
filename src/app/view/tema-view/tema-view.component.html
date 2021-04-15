@@ -104,10 +104,9 @@
                           <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
                             {{coment.usuario.nomeCompleto}} comentou: </p>
 
-                            <div *ngIf='idUserLogado == coment.usuario.id || idUserLogado == i.usuario.id ' >
-                              <a aria-hidden="false" aria-label="Exemplo delete"
-                              (click)='apagarComentario(coment.id)' class='text-danger'> delete
-                              </a>
+                            <div *ngIf='idUserLogado == coment.usuario.id || idUserLogado == i.usuario.id ' class="col d-flex justify-content-end">
+                              <a aria-hidden="false" aria-label="Exemplo delete" class="text-danger" (click)='apagarComentario(coment.id)'>Excluir <i
+                                class="fa fa-trash-o" aria-hidden="true"></i></a>
                             </div>
 
                         </div>
