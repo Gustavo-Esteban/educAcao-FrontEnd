@@ -168,11 +168,7 @@ export class HomeComponent implements OnInit {
         timer: 2000
       })
 
-      // this.postagem = new Postagem
-      // this.videoNovo = ''
-      // this.videoSeguro = ''
       this.router.navigate(['/redirect'])
-      // this.getAllPostagem()
 
     })
 

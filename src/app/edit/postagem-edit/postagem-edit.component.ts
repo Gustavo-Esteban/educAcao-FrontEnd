@@ -96,6 +96,8 @@ export class PostagemEditComponent implements OnInit {
   atualizar(){
     this.tema.id = this.idTema
     this.postagem.tema = this.tema
+    this.postagem.usuario = new Usuario()
+    this.postagem.usuario.id = this.idUser
     this.postagem.video = this.videoNovo
 
     this.postagemService.putPostagem(this.postagem).subscribe((resp: Postagem) => {
