@@ -1,3 +1,4 @@
+import { Comentario } from './../model/Comentario';
 import Swal  from 'sweetalert2';
 import { environment } from './../../environments/environment.prod';
 import { AuthService } from './../service/auth.service';
@@ -9,6 +10,7 @@ import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
 import { DomSanitizer } from "@angular/platform-browser";
+import { ComentarioService } from '../service/comentario.service';
 
 @Component({
   selector: 'app-home',
@@ -40,6 +42,12 @@ export class HomeComponent implements OnInit {
   conteudoValido = false
   tituloValido = false
 
+  comentario: Comentario = new Comentario()
+  listaComentarios: Comentario[]
+
+  idUserLogado = environment.id
+  fotoUserLogado = environment.foto
+  nomeUserLogado = environment.nome
 
   key = 'data'
   reverse = true
@@ -50,7 +58,8 @@ export class HomeComponent implements OnInit {
     private postagemService: PostagemService,
     private temaService: TemaService,
     private authService: AuthService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private comentarioService: ComentarioService
   ) {
 
   }
@@ -188,6 +197,51 @@ export class HomeComponent implements OnInit {
       })
     }
 
+  }
+
+  comentar(id: number){
+
+    this.user.id = this.idUserLogado;
+    this.comentario.usuario = this.user;
+
+    this.postagem.id = id;
+    this.comentario.postagem = this.postagem;
+
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Comentario realizada com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      this.comentario = new Comentario();
+      this.getAllPostagem();
+    }, err => {
+      console.log(this.comentario)
+    })
+
+  }
+
+  findallComentarios(){
+    this.comentarioService.getAllComentarios().subscribe((resp: Comentario[])=>{
+      this.listaComentarios = resp
+    })
+  }
+
+  apagarComentario(id: number){
+    this.comentarioService.deleteComentario(id).subscribe(() =>{
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Comentario apagado com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+    });
+    this.getAllPostagem()
+    this.findallComentarios()
   }
 
 }

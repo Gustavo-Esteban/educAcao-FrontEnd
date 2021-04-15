@@ -129,6 +129,76 @@
                     <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{ i.referencia }}" target="_blank">{{i.referencia }}</a>
                   </div> -->
                 </div>
+
+                <div class="card-footer text-muted">
+
+                  <!--Comentarios -->
+                  <div class="accordion" [attr.id]="'coment' + i.id">
+
+                    <div class="mt-2" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                          [attr.data-target]="'#' + 'comentButton' + i.id" aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="text-primary font-weight-bold mb-2">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar
+                          </p>
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div [attr.id]="'comentButton' + i.id" class="collapse" aria-labelledby="headingTwo"
+                      [attr.data-parent]="'#' + 'coment' + i.id">
+
+                      <div class="row mb-3">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                          <img class="rounded-circle mr-3" src={{fotoUserLogado}} width="30px" height="30px" />
+                          <div class="input-group w-100">
+                            <input type="text" class="form-control mr-2" placeholder="Digite aqui seu comentário" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]='comentario.comentario' id='inputComentario'>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary" (click)='comentar(i.id)' id="button-addon2">Comentar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row d-flex justify-content-center"
+                        *ngFor='let coment of i.comentario | orderBy : key : reverse'>
+                        <div class="col-md-11">
+                          <div class="card mb-3 shadow border-0 rounded">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                  <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
+                                    {{coment.usuario.nomeCompleto}} comentou: </p>
+
+                                    <a aria-hidden="false" aria-label="Exemplo delete"
+                                      (click)='apagarComentario(coment.id)' class='text-danger'> delete
+                                    </a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="card-text ml-4" aria-describedby="texto">{{coment.comentario}} </p>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="d-flex justify-content-end">
+                                <small id="texto" class="form-text m-0 text-muted text-monospace">
+                                  Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Comentarios-->
+                </div>
+
               </div>
             </div>
           </div>
@@ -199,6 +269,76 @@
                     <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{i.referencia}}" target="_blank">{{i.referencia}}</a>
                   </div> -->
                 </div>
+
+                <div class="card-footer text-muted">
+
+                  <!--Comentarios -->
+                  <div class="accordion" [attr.id]="'coment' + i.id">
+
+                    <div class="mt-2" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                          [attr.data-target]="'#' + 'comentButton' + i.id" aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="text-primary font-weight-bold mb-2">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar
+                          </p>
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div [attr.id]="'comentButton' + i.id" class="collapse" aria-labelledby="headingTwo"
+                      [attr.data-parent]="'#' + 'coment' + i.id">
+
+                      <div class="row mb-3">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                          <img class="rounded-circle mr-3" src={{fotoUserLogado}} width="30px" height="30px" />
+                          <div class="input-group w-100">
+                            <input type="text" class="form-control mr-2" placeholder="Digite aqui seu comentário" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]='comentario.comentario' id='inputComentario'>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary" (click)='comentar(i.id)' id="button-addon2">Comentar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row d-flex justify-content-center"
+                        *ngFor='let coment of i.comentario | orderBy : key : reverse'>
+                        <div class="col-md-11">
+                          <div class="card mb-3 shadow border-0 rounded">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                  <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
+                                    {{coment.usuario.nomeCompleto}} comentou: </p>
+
+                                    <a aria-hidden="false" aria-label="Exemplo delete"
+                                      (click)='apagarComentario(coment.id)' class='text-danger'> delete
+                                    </a>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="card-text ml-4" aria-describedby="texto">{{coment.comentario}} </p>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="d-flex justify-content-end">
+                                <small id="texto" class="form-text m-0 text-muted text-monospace">
+                                  Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!--/Comentarios-->
+                </div>
+
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { Tema } from "./Tema"
 import { Usuario } from "./Usuario"
+import { Comentario } from "./Comentario"
 
 export class Postagem{
   public id: number
@@ -12,4 +13,5 @@ export class Postagem{
   public usuario: Usuario
   public tema: Tema
   public videoSeguro: any
+  public comentario: Comentario[]
 }
