@@ -114,9 +114,10 @@
                 <div class="card-body">
                   <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
                   <p class="card-text">{{ i.conteudo }}</p>
-                  <img *ngIf="i.imagem != null" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
-                  <div *ngIf="i.videoSeguro.changingThisBreaksApplicationSecurity != null" class="container">
+                  <img *ngIf="!(i.imagem == null || i.imagem =='')" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
+
+                  <div *ngIf="!(i.videoSeguro.changingThisBreaksApplicationSecurity == null ||i.videoSeguro.changingThisBreaksApplicationSecurity == '')" class="container">
                     <div class="row config-video">
                       <iframe width="560" height="315" [src]="i.videoSeguro" title="YouTube video player"
                         frameborder="0"
@@ -259,9 +260,9 @@
                   <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
 
                   <p class="card-text">{{ i.conteudo }}</p>
-                  <img *ngIf="i.imagem != null" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
+                  <img *ngIf="!(i.imagem == null || i.imagem =='')l" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
-                  <div class="container" *ngIf="i.videoSeguro.changingThisBreaksApplicationSecurity != null">
+                  <div class="container" *ngIf="!(i.videoSeguro.changingThisBreaksApplicationSecurity == null ||i.videoSeguro.changingThisBreaksApplicationSecurity == '')">
                     <div class="row config-video">
                       <iframe width="560" height="315" [src]="i.videoSeguro" title="YouTube video player"
                         frameborder="0"
