@@ -1,3 +1,4 @@
+import { RedirectComponent } from './redirect/redirect.component';
 import { UserEditComponent } from './edit/user-edit/user-edit.component';
 import { PostagemDeleteComponent } from './delete/postagem-delete/postagem-delete.component';
 import { PostagemEditComponent } from './edit/postagem-edit/postagem-edit.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'home', component:HomeComponent},
   {path: 'sobrenos', component:SobrenosComponent},
   {path: 'tema', component: TemaComponent},
+  {path: 'redirect', component: RedirectComponent},
 
   {path: 'tema-edit/:id', component: TemaEditComponent},
   {path: 'tema-delete/:id', component: TemaDeleteComponent},
