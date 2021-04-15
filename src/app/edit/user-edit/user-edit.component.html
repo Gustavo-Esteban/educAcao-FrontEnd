@@ -6,27 +6,27 @@
       <hr>
         <div class="form-group">
             <label for="nome"> Nome </label>
-            <input [(ngModel)]='user.nomeCompleto' class="form-control" type="text" name="nome" id="nome" placeholder="Digite seu nome" >
+            <input [(ngModel)]='user.nomeCompleto' (keyup)='validaNome($event)' class="form-control" type="text" name="nome" id="nome" placeholder="Digite seu nome" >
         </div>
 
         <div class="form-group">
             <label for="usuario"> Email </label>
-            <input [(ngModel)]='user.email' class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
+            <input [(ngModel)]='user.email' (keyup)='validaEmail($event)' class="form-control" type="text" name="usuario" id="usuario" placeholder="Seu usuário">
         </div>
 
         <div class="form-group">
             <label for="foto"> Link da Foto </label>
-            <input [(ngModel)]='user.foto' class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
+            <input [(ngModel)]='user.foto' (keyup)='validaFoto($event)' class="form-control" type="text" name="foto" id="foto" placeholder="Link da sua foto">
         </div>
 
         <div class="form-group">
             <label for="senha"> Senha </label>
-            <input (input)='confirmSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha">
+            <input  (keyup)='validaSenha($event)' class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha">
         </div>
 
         <div class="form-group">
             <label for="confirmaSenha"> Confirmar Senha </label>
-            <input [(ngModel)]='user.senha' class="form-control" type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma sua senha">
+            <input [(ngModel)]='user.senha' (keyup)='validaConfirmaSenha($event)' class="form-control" type="password" name="confirmaSenha" id="confirmaSenha" placeholder="Confirma sua senha">
         </div>
 
         <!-- <div class="form-group">

@@ -17,6 +17,12 @@ export class UserEditComponent implements OnInit {
   confirmarSenha: string
   tipoUsuario: string
 
+  nomeValido = false
+  emailValido = false
+  fotoValida = false
+  senhaValida = false
+  confirmaSenha = false
+
   constructor(
     private authService: AuthService,
     private route: ActivatedRoute,
@@ -41,17 +47,53 @@ export class UserEditComponent implements OnInit {
     this.findByIdUser(this.idUser)
   }
 
-  confirmSenha(event: any) {
+  // confirmSenha(event: any) {
+  //   this.confirmarSenha = event.target.value
+  // }
+
+  // tipoUser(event: any) {
+  //   this.tipoUsuario = event.target.value
+  // }
+
+
+  validaNome(event: any) {
+    this.nomeValido = this.validar(event.target.value.length < 2 || event.target.value.length > 100, event)
+  }
+
+  validaEmail(event: any) {
+    this.emailValido = this.validar(event.target.value.indexOf('@') == -1 || event.target.value.indexOf('.') == -1, event)
+  }
+
+  validaFoto(event: any) {
+    let regex = /\.(jpe?g|png)$/i
+    this.fotoValida = this.validar(!regex.test(event.target.value), event)
+  }
+
+  validaSenha(event: any) {
+    this.senhaValida = this.validar(event.target.value.length < 5 || event.target.value.length > 40, event)
     this.confirmarSenha = event.target.value
   }
 
-  tipoUser(event: any) {
-    this.tipoUsuario = event.target.value
+  validaConfirmaSenha(event: any) {
+    this.confirmaSenha = this.validar(this.confirmarSenha != event.target.value, event)
+  }
+
+  validar(condicao: boolean, event: any) {
+    let valido = false
+    if (condicao) {
+      event.target.classList.remove("is-valid")
+      event.target.classList.add("is-invalid")
+    } else {
+      event.target.classList.remove("is-invalid")
+      event.target.classList.add("is-valid")
+      valido = true
+    }
+    return valido
   }
 
   atualizar(){
 
-    if(this.user.senha != this.confirmarSenha){
+    if(this.senhaValida != this.confirmaSenha){
       Swal.fire({
         icon: 'error',
         title: 'As senhas estão incorretas',
