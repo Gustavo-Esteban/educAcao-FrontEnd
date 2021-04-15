@@ -81,7 +81,7 @@ export class HomeComponent implements OnInit {
   }
 
   validaConteudo(event: any) {
-    this.conteudoValido = this.validar( event.target.value.length > 100, event)
+    this.conteudoValido = this.validar( event.target.value.length > 3000, event)
   }
 
   validaImagem(event: any) {
@@ -159,7 +159,7 @@ export class HomeComponent implements OnInit {
         timer: 2000
       })
 
-      this.postagem = new Postagem()
+      this.postagem = new Postagem
       this.videoNovo = ''
       this.videoSeguro = ''
       this.getAllPostagem()
