@@ -111,9 +111,9 @@
                   </div>
                 </div>
 
-                <div class="card-body">
+                <div class="card-body text-center">
                   <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
-                  <p class="card-text">{{ i.conteudo }}</p>
+                  <p class="card-text mt-3">{{ i.conteudo }}</p>
 
                   <img *ngIf="!(i.imagem == null || i.imagem =='')" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
@@ -131,9 +131,9 @@
                   </div> -->
                 </div>
 
+                <!--Comentarios -->
                 <div class="card-footer text-muted">
 
-                  <!--Comentarios -->
                   <div class="accordion" [attr.id]="'coment' + i.id">
 
                     <div class="mt-2" id="headingTwo">
@@ -172,7 +172,7 @@
                                 <div class="col d-flex justify-content-start">
                                   <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
                                     {{coment.usuario.nomeCompleto}} comentou: </p>
-                                    <div *ngIf='idUserLogado == coment.usuario.id || idUserLogado == i.usuario.id '>
+                                    <div *ngIf='idUserLogado == coment.usuario.id || idUserLogado == i.usuario.id '  class="col d-flex justify-content-end">
 
                                       <a  aria-hidden="false" aria-label="Exemplo delete"
                                       (click)='apagarComentario(coment.id)' class='text-danger'> delete
@@ -202,8 +202,8 @@
                       </div>
                     </div>
                   </div>
-                  <!--/Comentarios-->
                 </div>
+                <!--/Comentarios-->
 
               </div>
             </div>
@@ -256,10 +256,10 @@
                 </div>
 
 
-                <div class="card-body">
+                <div class="card-body text-center">
                   <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
 
-                  <p class="card-text">{{ i.conteudo }}</p>
+                  <p class="card-text mt-3">{{ i.conteudo }}</p>
                   <img *ngIf="!(i.imagem == null || i.imagem =='')l" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
 
                   <div class="container" *ngIf="!(i.videoSeguro.changingThisBreaksApplicationSecurity == null ||i.videoSeguro.changingThisBreaksApplicationSecurity == '')">
@@ -276,9 +276,9 @@
                   </div> -->
                 </div>
 
+                <!--Comentarios -->
                 <div class="card-footer text-muted">
 
-                  <!--Comentarios -->
                   <div class="accordion" [attr.id]="'coment' + i.id">
 
                     <div class="mt-2" id="headingTwo">
@@ -318,8 +318,8 @@
                                   <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
                                     {{coment.usuario.nomeCompleto}} comentou: </p>
 
-                                    <div>
-                                      <a aria-hidden="false" aria-label="Exemplo delete"
+                                    <div class="col d-flex justify-content-end">
+                                      <a  aria-hidden="false" aria-label="Exemplo delete"
                                       (click)='apagarComentario(coment.id)' class='text-danger'> delete
                                       </a>
                                     </div>
@@ -345,8 +345,8 @@
                       </div>
                     </div>
                   </div>
-                  <!--/Comentarios-->
                 </div>
+                <!--/Comentarios-->
 
               </div>
             </div>
@@ -428,3 +428,4 @@
 </div>
 
 <!-- /Modal Postagem -->
+

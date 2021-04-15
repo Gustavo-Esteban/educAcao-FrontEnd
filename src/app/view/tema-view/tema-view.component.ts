@@ -1,3 +1,6 @@
+import { Usuario } from './../../model/Usuario';
+import { Comentario } from './../../model/Comentario';
+import { ComentarioService } from './../../service/comentario.service';
 import Swal  from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Postagem } from './../../model/Postagem';
@@ -22,12 +25,26 @@ export class TemaViewComponent implements OnInit {
   key = 'data'
   reverse = true
 
+
+  comentario: Comentario = new Comentario()
+  listaComentarios: Comentario[]
+
+  postagem: Postagem = new Postagem()
+  user: Usuario = new Usuario()
+  idUser = environment.id
+  idUserLogado = environment.id
+  fotoUserLogado = environment.foto
+  nomeUserLogado = environment.nome
+
+
+
   constructor(
 
     private temaService: TemaService,
     private router: Router,
     private route: ActivatedRoute,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private comentarioService: ComentarioService
   ) { }
 
   ngOnInit() {
@@ -61,6 +78,51 @@ export class TemaViewComponent implements OnInit {
       })
 
     })
+  }
+
+
+  comentar(id: number){
+
+    this.user.id = this.idUserLogado;
+    this.comentario.usuario = this.user;
+
+    this.postagem.id = id;
+    this.comentario.postagem = this.postagem;
+
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+      this.comentario = resp
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Comentario realizada com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      this.comentario = new Comentario();
+      this.findByIdTema(this.idTema);
+    }, err => {
+      console.log(this.comentario)
+    })
+
+  }
+
+  findallComentarios(){
+    this.comentarioService.getAllComentarios().subscribe((resp: Comentario[])=>{
+      this.listaComentarios = resp
+    })
+  }
+
+  apagarComentario(id: number){
+    this.comentarioService.deleteComentario(id).subscribe(() =>{
+      Swal.fire({
+        icon: 'success',
+        title: 'Muito bom',
+        text: 'Comentario apagado com sucesso!',
+        showConfirmButton: false,
+        timer: 2000
+      })
+      this.findByIdTema(this.idTema);
+    });
   }
 
 }
