@@ -239,9 +239,8 @@ export class HomeComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       })
+       this.getAllPostagem()
     });
-    this.getAllPostagem()
-    this.findallComentarios()
   }
 
 }
