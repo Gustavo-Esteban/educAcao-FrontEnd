@@ -98,7 +98,8 @@ export class StartComponent implements OnInit {
         }, erro => {
           Swal.fire({
             icon: 'error',
-            title: 'Email já cadastrado!',
+            title: 'Ocorreu um erro',
+            text: 'E-mail já cadastrado!',
             showConfirmButton: false,
             timer: 1500
           })
