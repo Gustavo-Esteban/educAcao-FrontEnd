@@ -16,6 +16,7 @@ export class StartComponent implements OnInit {
 
   user: Usuario = new Usuario
   confirmarSenha: string
+  confirmarSenha1: string
 
   userLogin: UserLogin = new UserLogin()
 
@@ -55,6 +56,7 @@ export class StartComponent implements OnInit {
 
   validaConfirmaSenha(event: any) {
     this.confirmaSenha = this.validar(this.confirmarSenha != event.target.value, event)
+    this.confirmarSenha1 = event.target.value
   }
 
   validar(condicao: boolean, event: any) {
@@ -71,7 +73,7 @@ export class StartComponent implements OnInit {
   }
 
   cadastrar(){
-    if(this.senhaValida != this.confirmaSenha){
+    if(this.confirmarSenha1 != this.confirmarSenha){
       Swal.fire({
         icon: 'error',
         title: 'Ocorreu um erro',
@@ -93,8 +95,16 @@ export class StartComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           })
-        })
-      } else {
+        }, erro => {
+          Swal.fire({
+            icon: 'error',
+            title: 'Email já cadastrado!',
+            showConfirmButton: false,
+            timer: 1500
+          })
+      })
+    }
+      else {
         Swal.fire({
           icon: 'error',
           title: 'Ocorreu um erro',
