@@ -1,7 +1,7 @@
 <p align="center"><img width="200px" src="https://i.imgur.com/AdJMOJr.png"/></p>
 <br>
 
-## A aplicação do FRONT-END utiliza: 
+## <h2>A aplicação do FRONT-END utiliza:</h2>
 
 <ul>
   <li>Angular (Versão 11.2.4)</li>
