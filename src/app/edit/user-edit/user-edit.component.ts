@@ -40,7 +40,7 @@ export class UserEditComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       })
-      this.router.navigate(['/header'])
+      this.router.navigate(['/start'])
     }
 
     this.idUser = this.route.snapshot.params['id']
@@ -103,6 +103,10 @@ export class UserEditComponent implements OnInit {
       })
 
     } else{
+
+      if(this.user.foto == '' ) {
+        this.user.foto = 'https://i.imgur.com/2fNwmra.png'
+      }
       this.authService.atualizar(this.user).subscribe((resp: Usuario) => {
           this.user = resp
           this.router.navigate(['/start'])
