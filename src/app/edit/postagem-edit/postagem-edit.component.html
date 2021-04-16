@@ -13,13 +13,13 @@
 
 
         <label for="titulo">Título</label>
-        <input [(ngModel)]='postagem.titulo' type="text" class="form-control" id="titulo">
+        <input [(ngModel)]='postagem.titulo' (keyup)='validaTitulo($event)' type="text" class="form-control" id="titulo">
 
         <label for="texto">Texto</label>
-        <textarea [(ngModel)]="postagem.conteudo" class="form-control" name="texto" id="texto" rows="2"  placeholder="Digite um novo texto"></textarea>
+        <textarea [(ngModel)]="postagem.conteudo" (keyup)='validaConteudo($event)' class="form-control" name="texto" id="texto" rows="2"  placeholder="Digite um novo texto"></textarea>
 
         <label for="imagem">Imagem</label>
-        <input [(ngModel)]='postagem.imagem' type="text" class="form-control" id="imagem" placeholder="Altere o link para a imagem">
+        <input [(ngModel)]='postagem.imagem' (keyup)='validaImagem($event)' type="text" class="form-control" id="imagem" placeholder="Altere o link para a imagem">
 
         <label for="titulo" class="modaltitle">Link do video</label>
         <div class="container">

@@ -29,6 +29,10 @@ export class PostagemEditComponent implements OnInit {
   videoSeguro: any;
   videoNovo: string
 
+  imagemValida = false
+  conteudoValido = false
+  tituloValido = false
+
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -58,6 +62,32 @@ export class PostagemEditComponent implements OnInit {
     this.findAllTemas()
 
   }
+
+  validaTitulo(event: any) {
+    this.tituloValido = this.validar(event.target.value.length < 2 || event.target.value.length > 100, event)
+  }
+
+  validaConteudo(event: any) {
+    this.conteudoValido = this.validar( event.target.value.length > 3000, event)
+  }
+
+  validaImagem(event: any) {
+    let regex = /\.(jpe?g|png)$/i
+    this.imagemValida = this.validar(!regex.test(event.target.value), event)
+  }
+  validar(condicao: boolean, event: any) {
+    let valido = false
+    if (condicao) {
+      event.target.classList.remove("is-valid")
+      event.target.classList.add("is-invalid")
+    } else {
+      event.target.classList.remove("is-invalid")
+      event.target.classList.add("is-valid")
+      valido = true
+    }
+    return valido
+  }
+
 
   findByIdPostagem(id:number){
     this.postagemService.getByIdPostagem(id).subscribe((resp: Postagem) =>{
