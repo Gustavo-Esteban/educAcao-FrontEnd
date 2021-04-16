@@ -15,6 +15,7 @@ export class UserEditComponent implements OnInit {
   user: Usuario = new Usuario()
   idUser: number
   confirmarSenha: string
+  confirmarSenha1: string
   tipoUsuario: string
 
   nomeValido = false
@@ -76,6 +77,7 @@ export class UserEditComponent implements OnInit {
 
   validaConfirmaSenha(event: any) {
     this.confirmaSenha = this.validar(this.confirmarSenha != event.target.value, event)
+    this.confirmarSenha1 = event.target.value
   }
 
   validar(condicao: boolean, event: any) {
@@ -93,7 +95,7 @@ export class UserEditComponent implements OnInit {
 
   atualizar(){
 
-    if(this.senhaValida != this.confirmaSenha){
+    if(this.confirmarSenha != this.confirmarSenha1){
       Swal.fire({
         icon: 'error',
         title: 'As senhas estão incorretas',
