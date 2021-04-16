@@ -51,7 +51,7 @@
 <p align="justify">Todas as pessoas passam boa parte de suas vidas estudando: Seja para escola, faculdade, concursos ou vestibulares.<br><em><strong>Não teria sido mais fácil esse processo se tivéssemos uma ferramenta pensada nesses estudantes?</strong></em><br> <em><strong>Que facilitasse, democratizasse e organizasse o acesso à educação de qualidade?</strong></em><br> Foi pensando nisso, e com os objetivos de desenvolvimento sustentável da ONU em mente, que nasceu o EducAção, um projeto que visa possibilitar acesso à uma fonte segura e confiável de estudos, para qualquer estudante, de qualquer classe social e escolaridade, de qualquer plataforma. Aqui, é possível discutir temas com outros estudantes que talvez tenham as mesmas dúvidas que você, compartilhar seu conhecimento e, assim, crescerem juntos.</p>
 
 ## <h1 align="center"> Tela inicial</h1>
-<p align="justify">A página inicial para realização do cadastro e login, constando também com disponibilidade para acesso ao Sobre Nós e também a leitura na página sobre o projeto.<br><em>Disponível no canto interior direito também o botão com as funções de acessibilidade para todo o site.</em></p>
+<p align="justify">A página inicial para realização do cadastro e login, constando também com disponibilidade para acesso ao Sobre Nós e também a leitura na página sobre o projeto.<br><em>Disponível no canto inferior direito também o botão com as funções de acessibilidade para todo o site.</em></p>
 <p align="center"><img width="70%" src="https://i.imgur.com/bJOfVuT.gif"></p>
 
 ## <h1 align="center"> Home</h1>
