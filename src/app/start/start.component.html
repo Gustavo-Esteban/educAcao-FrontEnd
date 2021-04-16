@@ -1,0 +1,253 @@
+<!-- entrar EducAcao -->
+<div class="container-fluid bg-fundo ">
+  <nav id="inicio" class="navbar navbar-expand-lg  navbar-dark" >
+    <a class="navbar-brand" href="#"><img class="tm-img" src="https://i.imgur.com/AdJMOJr.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link title-sobrenos" href="#sobre">Sobre o Projeto<span class="sr-only">(página atual)</span></a>
+        </li>
+      </ul>
+      <div>
+        <!-- Botão para acionar modalEntrar -->
+        <a class="btn btn-outline-success mr-4 mt-3 mb-4" type="submit" data-toggle="modal" data-target="#modalLogin">Login</a>
+         <!-- Botão para acionar modalCadastrar -->
+         <a class="btn btn-outline-info  mr-4 mt-3 mb-4"  type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
+      </div>
+    </div>
+  </nav>
+  <hr class="mt-0">
+
+  <div class="row  d-flex align-items-center">
+
+     <div class="col-md-7">
+
+      <div class="row d-flex justify-content-center">
+         <div class="col-md-7 text-white">
+
+           <h1 class="fs-40 titleinicial">Acesse sua nova comunidade de estudos! <img class="tm-icon ml-2" src="https://i.imgur.com/iGXcgv2.png" alt=""> <img class="tm-icon ml-2" src="https://i.imgur.com/iAhH2po.png" alt=""></h1>
+
+         </div>
+      </div>
+
+      <div class="row d-flex justify-content-center mt-3 mb-5">
+        <div class="col-md-7 text-white">
+
+          <div class="form-group">
+              <input [(ngModel)]='userLogin.email' type="email" class="form-control text-white " name="email" id="email" placeholder="" required>
+              <label for="usuario">E-mail</label>
+          </div>
+
+          <div class="form-group">
+              <input [(ngModel)]='userLogin.senha' class="form-control text-white" type="password" name="senha" id="senha" placeholder="" required>
+              <label for="senha">Senha</label>
+            </div>
+
+           <button class="btn btn-success form-control mt-3" (click)='entrar()'>Entrar</button>
+
+           <p class="text-center mt-2">
+            <a class='text-white ' type="submit" data-toggle="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
+          </p>
+
+           <hr class="mt-2 mb-2">
+
+          <p class="text-center ">
+              Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a>
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-md-5 ">
+
+       <img src="https://media.giphy.com/media/iFaPIqooUgZ2MkVNJI/giphy.gif" alt="" width="100%" height="100%">
+
+    </div>
+  </div>
+<!-- /entrar EducAcao -->
+<!-- informações sobre EducAcao -->
+</div>
+
+<div class="container-fluid bg-fundo2" id="sobre">
+  <div class="row">
+    <div class="col-md-12 d-flex justify-content-center">
+      <h1 class="text-center mt-3 font-weight-bold title-sobreprojeto">Sobre o Projeto</h1>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid bg-fundo1">
+  <div class="row">
+    <div class="col-md-4 mt-3">
+      <img width="100%" height="100%"src="https://i.imgur.com/mfI4MBE.png" alt="">
+    </div>
+    <div class="col-md-8 mt-5 d-flex justify-content-center">
+      <p class="font-sobrep">Todas as pessoas passam boa parte de suas vidas estudando: Seja para escola, faculdade, concursos ou vestibulares. Não teria sido mais fácil esse processo se tivéssemos uma ferramenta pensada nesses estudantes? Que facilitasse, democratizasse e organizasse o acesso à educação de qualidade?
+
+        Foi pensando nisso, e com os objetivos de desenvolvimento sustentável da ONU em mente, que nasceu o EducAção, um projeto que visa possibilitar acesso à uma fonte segura e confiável de estudos, para qualquer estudante, de qualquer classe social e escolaridade, de qualquer plataforma. Aqui, é possível discutir temas com outros estudantes que talvez tenham as mesmas dúvidas que você, compartilhar seu conhecimento e, assim, crescerem juntos.</p>
+    </div>
+  </div>
+
+  <div class="row ">
+    <div class="col-md-6 text-center align-self-center">
+      <div class="contentbottom"><p class="text-white mt-5 text-center cadastrarfont">Gostou do nosso projeto? Quer fazer parte e ajudar estudantes brasileiros a aprenderem mais? </p>
+      <a class="btn btn-outline-light"type="submit"data-toggle="modal" data-target="#modalCadastrar">Cadastre-se</a></div>
+
+      <div class="col align-self-end mt-5"><h1 class="sobre text-white font-family">Saiba mais sobre nossos desenvolvedores</h1>
+        <a class="btn btn-outline-light mt-2" routerLink='/sobrenos'>Sobre nós</a>
+      </div>
+    </div>
+
+    <div class="col-md-6 ">
+      <img width="100%" height="100%" src="https://i.imgur.com/ZB00PAx.png" alt="">
+    </div>
+  </div>
+
+
+  <div class="row mt-2 d-flex justify-content-center">
+    <div class="subir mb-5 ">
+      <a class="text-white html" href="#inicio">
+        <i class="fa fa-chevron-up" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+
+</div>
+<!-- /informações sobre EducAcao -->
+
+<!-- ModalLogin -->
+<div class="modal fade bg-img" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+  <div class="modal-content bg-ligth text-info br">
+      <div class="modal-header">
+        <div class="row ">
+          <h5 class="modal-title " id="TituloModalCentralizado"><img class="tm-img1 ml-3" src="https://i.imgur.com/NhBWVw2.png" alt=""> Login</h5>
+        </div>
+
+        <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <input [(ngModel)]='userLogin.email' type="email" class="form-control text-info" name="emailModalLogin" id="emailModalLogin" placeholder="" required>
+          <label for="email" >E-mail:</label>
+        </div>
+
+        <div class="form-group">
+
+          <input [(ngModel)]='userLogin.senha' class="form-control" type="password" name="senhaModalLogin" id="senhaModalLogin" placeholder="" required>
+
+          <label for="senha">Senha</label>
+
+          <button class="btn btn-success form-control mt-3" data-dismiss="modal" (click)='entrar()'>Entrar</button>
+
+          <p class="text-center mt-3">
+            <a class="text-secondary" type="submit" data-toggle="modal" data-dismiss="modal" data-target="#modalRecuperarSenha">Esqueceu sua senha?</a>
+          </p>
+
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <p class="text-center text-secondary ">
+          Não tem uma conta? <a class="text-info" type="submit"data-toggle="modal" data-dismiss="modal" data-target="#modalCadastrar">Cadastre-se</a>
+        </p>
+      </div>
+  </div>
+  </div>
+</div>
+<!-- /ModalLogin -->
+
+<!-- ModalCadastrar -->
+<div class="modal fade bg-img" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+  <div class="modal-content br bg-light text-info">
+      <div class="modal-header">
+      <h5 class="modal-title" id="TituloModalCentralizado"><img class="tm-img1 ml-3" src="https://i.imgur.com/NhBWVw2.png" alt=""> Cadastre-se</h5>
+      <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+              <input [(ngModel)]='user.nomeCompleto' (keyup)='validaNome($event)' type="text" name="nomeCompleto" id="nomeCompleto" class="form-control text-info" required >
+              <label for="nomeCompleto" >Nome Completo:</label><br>
+          </div>
+
+
+          <div class="form-group">
+              <input [(ngModel)]='user.email' (keyup)='validaEmail($event)' type="email" class="form-control text-info" name="emailModalCadastrar" id="emailModalCadastrar" placeholder="" required>
+              <label for="email">E-mail:</label>
+          </div>
+
+          <div class="form-group">
+            <input [(ngModel)]='user.foto' (keyup)='validaFoto($event)' class="form-control text-info" type="text" name="foto" id="foto" placeholder="" required>
+            <label for="foto">Link da Foto</label>
+
+          </div>
+
+          <div class="form-group">
+            <input (keyup)='validaSenha($event)' class="form-control text-info" type="password" name="senhaModalCadastrar" id="senhaModalCadastrar" placeholder="" required>
+            <label for="senha">Senha</label>
+          </div>
+
+          <div class="form-group">
+            <input [(ngModel)]='user.senha' (keyup)='validaConfirmaSenha($event)' class="form-control text-info" type="password" name="confirmSenha" id="confirmSenha" placeholder="" required>
+            <label for="confirmSenha">Confirmar Senha</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+
+      <button type="button" class="btn btn-info"  data-dismiss="modal" (click)='cadastrar()'>Cadastrar</button>
+      </div>
+  </div>
+  </div>
+
+</div>
+<!-- /ModalCadastrar -->
+
+<!-- Modal Recuperar Senha-->
+<div class="modal fade bg-fundo" id="modalRecuperarSenha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content bg-white text-info">
+      <div class="modal-header">
+      <h5 class="modal-title" id="TituloModalCentralizado"><img class="tm-img1 ml-3" src="https://i.imgur.com/NhBWVw2.png" alt=""> Recuperar Senha</h5>
+      <button type="button" class="close text-info" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+      </button>
+      </div>
+      <div class="modal-body">
+          <div class="form-group">
+              <input type="email" class="form-control  text-info" id="exampleFormControlInput1" required>
+              <label for="email" >Digite seu endereço de e-mail:</label>
+          </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+      <button type="button" class="btn btn-info" data-dismiss="modal" (click)='esqueceuSenha()'>Recuperar Senha</button>
+      </div>
+  </div>
+  </div>
+</div>
+<!-- /Modal Recuperar Senha -->
+
+<!--footer-->
+<footer>
+  <div class="row w-100 ">
+    <div class="col-md-12">
+      <p class="text-center">
+        Todos os direitos reservados: EducAção&copy;
+      </p>
+    </div>
+  </div>
+
+</footer>
+<!--/footer-->

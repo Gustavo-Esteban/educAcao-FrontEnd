@@ -1,0 +1,38 @@
+
+<nav class="navbar navbar-expand-lg">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+    <ul class="navbar-nav mr-auto d-flex align-items-center">
+      <li class="nav-item active">
+        <img src="https://i.imgur.com/Aqyu5xh.png" alt="logo" width="200px" height="100px" class="img-fluid">
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto d-flex align-items-center">
+      <li class="nav-item pl-3">
+          <p class="m-0 font-weight-bold text-white fs-16">{{nome}}</p>
+      </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-info" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="{{foto}}" alt="imagem do user" width="50px" height="50px" class="rounded-circle">
+          </a>
+          <div class="dropdown-menu dropdown-menu-right dropmenu " aria-labelledby="navbarDropdown">
+              <li class="nav-item pl-3">
+                 <a [routerLink]="['user-edit', id]" class="m-0 mb-2 text-white fs-14"><i class="fa fa-cog" aria-hidden="true"></i> Editar perfil</a>
+              </li>
+
+              <li *ngIf='auth.adm()' class="nav-item pl-3">
+                <a routerLink='/tema' class="m-0 text-white fs-14"><i class="fa fa-paint-brush" aria-hidden="true"></i> Editar tema</a>
+             </li>
+             <hr>
+              <li>
+                <a (click)='sair()' class="m-3 mt-0 font-weight-bold text-white fs-14 "><i class="fa fa-sign-out" aria-hidden="true"></i> Sair </a>
+              </li>
+          </div>
+        </li>
+    </ul>
+  </div>
+</nav>

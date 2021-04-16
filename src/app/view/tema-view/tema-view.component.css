@@ -1,0 +1,61 @@
+.iconcard {
+  height: 55px;
+  color: aliceblue;
+}
+
+.bg-fundo{
+  background-color: rgb(231, 236, 245);
+
+}
+.bg-fundo1{
+  background-color: white;
+}
+
+.bodypostagem {
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  border-radius: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+#title-tema {
+  text-align: center;
+}
+
+.inputbody {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+  background-size: 400px;
+}
+
+h1 {
+  padding: 10px;
+}
+
+
+.postfonth {
+  font-weight: bold;
+  color: #000000;
+}
+
+.postfonth1 {
+  font-weight: bold;
+  color: #000000;
+  text-align: center;
+}
+
+.voltar{
+  animation: is-bouncing 0.7s ease alternate infinite;
+  display: grid;
+  place-items: left;
+  height: 30px;
+
+}
+
+@keyframes is-bouncing {
+  to{
+    transform: translateX(15px);
+  }
+}

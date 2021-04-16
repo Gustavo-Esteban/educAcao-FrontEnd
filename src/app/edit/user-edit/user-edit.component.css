@@ -1,0 +1,25 @@
+.bg {
+  background-color: rgb(231, 236, 245);
+}
+
+h1 {
+  padding: 10px;
+
+}
+
+.inputbody {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+  background-size: 1050px;
+}
+
+label {
+  color: black;
+  text-align: center;
+}
+
+.font-button {
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px rgb(92, 92, 92);
+}

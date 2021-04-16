@@ -1,0 +1,52 @@
+#bg {
+  background-color: rgb(231, 236, 245);
+}
+
+#r-p {
+  padding-bottom: 90px;
+}
+
+h1 {
+  color: rgb(8, 8, 8);
+  text-shadow: 0px 0px 1px rgb(95, 95, 95);
+  padding: 10px;
+}
+
+.p1 {
+  color: rgb(8, 8, 8);
+  text-shadow: 0px 0px 1px rgb(99, 93, 93);
+  font-size: 25px;
+  text-align: center;
+ }
+
+.p2 {
+  color: rgb(58, 17, 17);
+  text-shadow: 0px 0px 1px rgb(107, 107, 107);
+  font-size: 19px;
+  font-style: oblique;
+  text-align: center;
+  padding-bottom: 10px;
+ }
+
+h5 {
+  font-weight: bold;
+  color: rgb(22, 22, 22);
+}
+
+.p3 {
+  color: rgb(0, 0, 0);
+  font-style: oblique;
+  text-align: center;
+}
+
+.font-button {
+  color: whitesmoke;
+  text-shadow: 2px 2px 2px rgb(92, 92, 92);
+}
+
+.inputbody {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 20px;
+  background-color: rgba(228, 228, 228, 0.918)
+}

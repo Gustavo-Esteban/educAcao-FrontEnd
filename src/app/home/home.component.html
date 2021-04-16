@@ -1,0 +1,429 @@
+<div class="container-fluid d-flex justify-content-center" id="bg">
+  <!-- Parte fixa esquerda Pag -->
+  <div class="col-md-4 mt-3">
+    <div class="row d-flex justify-content-center">
+      <div class="card mt-3" style="width: 18rem">
+        <div class="card-body" id="conteudocard">
+          <p class="" id="titulobuscar">O que você está procurando?</p>
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Pesquisar Postagem             🔎"
+              aria-label="Recipient's username" [(ngModel)]="tituloPost" (keyup)="findByTituloPostagem()"
+              aria-describedby="button-addon2" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row d-flex justify-content-center">
+      <div class="card mt-3 mb-3" style="width: 18rem">
+        <div class="card-body" id="conteudocard">
+          <h2 class="titulocard">Temas</h2>
+          <hr />
+
+          <ul>
+            <li class="mb-3" *ngFor="let i of listaTema">
+              <a class="cardfont" [routerLink]="['/tema-view', i.id]"><img src="{{ i.icon }}" class="iconcard" /> {{
+                i.nome }}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /Parte fixa esquerda Pag -->
+
+  <!-- postagens -->
+  <div class="col-md-8 d-flex justify-content-center mt-3">
+    <div class="container">
+      <div class="col-md-10">
+        <div class="row align-items-center">
+          <div class="card border-secondary mt-3 w-100" id="bodypostagem">
+            <div class="card-header">
+              <p class="card-text mt-3 mb-3">
+                <img src="{{ foto }}" alt="imagem do user" width="50px" height="50px" class="rounded-circle" />
+
+                <button type="button" class="btn btn-outline-secondary btn-md ml-4" style="width: 80%"
+                  data-toggle="modal" data-target="#novaPostagem">
+                  Olá {{ nome }}, comece uma publicação aqui!
+                </button>
+              </p>
+              <hr />
+              <div class="container-fluid d-flex justify-content-center">
+                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img
+                    class="iconbuscar" src="https://i.imgur.com/3Vxv2W2.png" />
+                  Foto <input type="button" hidden />
+                </label>
+                <label class="btn btn-default mr-5" data-toggle="modal" data-target="#novaPostagem"><img
+                    class="iconbuscar" src="https://i.imgur.com/2kGNjeH.png" />
+                  Vídeo <input type="button" hidden />
+                </label>
+                <!-- <label class="btn btn-default" data-toggle="modal" data-target="#novaPostagem"><img class="iconbuscar"
+                    src="https://i.imgur.com/CThG0we.png" />
+                  Referências <input type="button" hidden />
+                </label> -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nav>
+          <div class="nav nav-tabs d-flex justify-content-center mt-3" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active font-weight-bold navstyle" id="nav-todasPostagens" data-toggle="tab"
+              href="#todasPostagens" role="tab" aria-controls="nav-todasPostagens" aria-selected="true">Todas as
+              Postagens</a>
+
+            <a (click)="findByIdUser()" class="nav-item nav-link font-weight-bold navstyle" id="nav-minhasPostagens-tab"
+              data-toggle="tab" href="#minhasPostagens" role="tab" aria-controls="nav-minhasPostagens"
+              aria-selected="false">Minhas Postagens</a>
+          </div>
+        </nav>
+
+        <div class="tab-content mt-3" id="nav-tabContent">
+          <!-- Todas as Postagens -->
+          <div class="tab-pane fade show active" id="todasPostagens" role="tabpanel"
+            aria-labelledby="nav-todasPostagens-tab">
+            <div class="row align-items-center">
+              <div class="card border-secondary mt-3 mb-3 w-100 bodypost"
+                *ngFor="let i of listaPostagem | orderBy: key:reverse">
+                <div class="card-header color-header border-secondary">
+                  <div class=" d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center ">
+                      <div class="mr-2">
+                        <img class="rounded-circle" src="{{i.usuario.foto}}" alt="Imagem do user" width="50px"
+                          height="50px" class="rounded-circle">
+                      </div>
+                      <div class="ml-2 mt-2">
+                        <div class="h5 m-0 postfonth">{{i.usuario.nomeCompleto}}</div>
+                        <div class="h7 text-muted">
+                          <p class="text-muted">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i
+                              class="fa fa-clock-o" aria-hidden="true"></i></p>
+                          </div>
+                      </div>
+
+                    </div>
+
+                    <div class="d-flex justify-content-end">
+                      <h5 class="mtema">
+                        <span class="tema-font">tema:</span> {{ i.tema.nome }} <img src="{{ i.tema.icon }}"
+                          class="iconcard1">
+                      </h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card-body text-center">
+                  <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
+                  <p class="card-text mt-3">{{ i.conteudo }}</p>
+
+                  <img *ngIf="!(i.imagem == null || i.imagem =='')" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
+
+                  <div *ngIf="!(i.videoSeguro.changingThisBreaksApplicationSecurity == null ||i.videoSeguro.changingThisBreaksApplicationSecurity == '')" class="container">
+                    <div class="row config-video">
+                      <iframe width="560" height="315" [src]="i.videoSeguro" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    </div>
+                  </div>
+
+                  <!-- <div *ngIf="i.referencia != null">
+                    <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{ i.referencia }}" target="_blank">{{i.referencia }}</a>
+                  </div> -->
+                </div>
+
+                <!--Comentarios -->
+                <div class="card-footer text-muted">
+
+                  <div class="accordion" [attr.id]="'coment' + i.id">
+
+                    <div class="mt-2" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                          [attr.data-target]="'#' + 'comentButton' + i.id" aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="text-primary font-weight-bold mb-2">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar ({{i.comentario.length}})
+                          </p>
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div [attr.id]="'comentButton' + i.id" class="collapse" aria-labelledby="headingTwo"
+                      [attr.data-parent]="'#' + 'coment' + i.id">
+
+                      <div class="row mb-3">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                          <img class="rounded-circle mr-3" src={{fotoUserLogado}} width="30px" height="30px" />
+                          <div class="input-group w-100">
+                            <input type="text" class="form-control mr-2" placeholder="Digite aqui seu comentário" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]='comentario.comentario' id='inputComentario'>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary" (click)='comentar(i.id)' id="button-addon2">Comentar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row d-flex justify-content-center"
+                        *ngFor='let coment of i.comentario | orderBy : key : reverse'>
+                        <div class="col-md-11">
+                          <div class="card mb-3 shadow border-0 rounded">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                  <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
+                                    {{coment.usuario.nomeCompleto}} comentou: </p>
+                                    <div *ngIf='idUserLogado == coment.usuario.id || idUserLogado == i.usuario.id '  class="col d-flex justify-content-end">
+
+                                      <a aria-hidden="false" aria-label="Exemplo delete" class="text-danger" (click)='apagarComentario(coment.id)'>Excluir <i
+                                        class="fa fa-trash-o" aria-hidden="true"></i></a>
+
+                                    </div>
+
+
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="card-text ml-4" aria-describedby="texto">{{coment.comentario}} </p>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="d-flex justify-content-end">
+                                <small id="texto" class="form-text m-0 text-muted text-monospace">
+                                  Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/Comentarios-->
+
+              </div>
+            </div>
+          </div>
+
+          <!-- /Todas as Postagens -->
+
+          <!-- Minhas Postagens -->
+          <div class="tab-pane fade show active" id="minhasPostagens" role="tabpanel"
+            aria-labelledby="nav-minhasPostagens-tab">
+            <div class="row align-items-center">
+              <div class="card border-secondary mt-3 mb-3 w-100 bodypost"
+                *ngFor="let i of listUserPostagem | orderBy: key:reverse">
+                <div class="card-header color-header border-secondary">
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="mr-2">
+                        <img class="rounded-circle" width="45" src="{{foto}}" alt="Imagem do user" width="50px"
+                          height="50px" class="rounded-circle">
+                      </div>
+                      <div class="ml-2 mt-2">
+                        <div class="h5 m-0 postfonth">{{nome}}</div>
+                        <div class="h7 text-muted">
+                          <p class="text-muted">{{i.data| date:'dd/MM/yyyy'}} às {{i.data| date: 'HH:mm'}} <i
+                              class="fa fa-clock-o" aria-hidden="true"></i></p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="dropdown">
+                      <button class="btn btn-light dropdown-toggle mb-5" type="button" id="gedf-drop1"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-ellipsis-h"></i>
+                      </button>
+                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="gedf-drop1">
+
+                        <a [routerLink]="['/postagem-edit', i.id]" class="text-info dropdown-item">Editar <i
+                            class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a [routerLink]="['/postagem-delete', i.id]" class="text-danger dropdown-item">Excluir <i
+                            class="fa fa-trash-o" aria-hidden="true"></i></a>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+                  <h5 class="mtema m-0">
+                    <span class="tema-font">tema:</span> {{ i.tema.nome }} <img src="{{ i.tema.icon }}"
+                      class="iconcard1">
+                  </h5>
+                </div>
+
+
+                <div class="card-body text-center">
+                  <h5 class="card-title postfonth1">{{ i.titulo }}</h5>
+
+                  <p class="card-text mt-3">{{ i.conteudo }}</p>
+                  <img *ngIf="!(i.imagem == null || i.imagem =='')l" src="{{ i.imagem }}" width="100%" height="100%" alt="" />
+
+                  <div class="container" *ngIf="!(i.videoSeguro.changingThisBreaksApplicationSecurity == null ||i.videoSeguro.changingThisBreaksApplicationSecurity == '')">
+                    <div class="row config-video">
+                      <iframe width="560" height="315" [src]="i.videoSeguro" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+                    </div>
+                  </div>
+
+                  <!-- <div *ngIf="i.referencia != null">
+                    <p class="card-text mt-3 mb-0 ">Referências: </p> <a href="{{i.referencia}}" target="_blank">{{i.referencia}}</a>
+                  </div> -->
+                </div>
+
+                <!--Comentarios -->
+                <div class="card-footer text-muted">
+
+                  <div class="accordion" [attr.id]="'coment' + i.id">
+
+                    <div class="mt-2" id="headingTwo">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link collapsed text-dark" type="button" data-toggle="collapse"
+                          [attr.data-target]="'#' + 'comentButton' + i.id" aria-expanded="false" aria-controls="collapseTwo">
+                          <p class="text-primary font-weight-bold mb-2">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> Comentar ({{i.comentario.length}})
+                          </p>
+                        </button>
+                      </h5>
+                    </div>
+
+                    <div [attr.id]="'comentButton' + i.id" class="collapse" aria-labelledby="headingTwo"
+                      [attr.data-parent]="'#' + 'coment' + i.id">
+
+                      <div class="row mb-3">
+                        <div class="col d-flex justify-content-center align-items-center p-4">
+                          <img class="rounded-circle mr-3" src={{fotoUserLogado}} width="30px" height="30px" />
+                          <div class="input-group w-100">
+                            <input type="text" class="form-control mr-2" placeholder="Digite aqui seu comentário" aria-label="Recipient's username" aria-describedby="button-addon2" [(ngModel)]='comentario.comentario' id='inputComentario'>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-primary" (click)='comentar(i.id)' id="button-addon2">Comentar</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="row d-flex justify-content-center"
+                        *ngFor='let coment of i.comentario | orderBy : key : reverse'>
+                        <div class="col-md-11">
+                          <div class="card mb-3 shadow border-0 rounded">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col d-flex justify-content-start">
+                                  <p> <img class=rounded-circle src={{coment.usuario.foto}} width="30px" height="30px" />
+                                    {{coment.usuario.nomeCompleto}} comentou: </p>
+
+                                    <div class="col d-flex justify-content-end">
+                                      <a aria-hidden="false" aria-label="Exemplo delete" class="text-danger" (click)='apagarComentario(coment.id)'>Excluir <i
+                                        class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                    </div>
+
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                  <p class="card-text ml-4" aria-describedby="texto">{{coment.comentario}} </p>
+                                </div>
+                              </div>
+
+                              <hr>
+
+                              <div class="d-flex justify-content-end">
+                                <small id="texto" class="form-text m-0 text-muted text-monospace">
+                                  Comentado em {{ coment.data | date:'dd/MM/yyyy'}} às {{coment.data | date:'HH:mm'}}
+                                </small>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--/Comentarios-->
+
+              </div>
+            </div>
+          </div>
+          <!-- /Minhas Postagens -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /postagens -->
+</div>
+
+<!-- Modal postagem -->
+<div class="modal fade blur" id="novaPostagem" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header colormodaltitle">
+        <h5 class="modal-title modaltitle" id="TituloModalCentralizado">
+          Nova Postagem
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body" id="modalheight">
+        <div class="form-group">
+          <label for="tema" class="modaltitle">Escolha um tema:</label>
+          <select class="form-control" name="tema" id="tema" [(ngModel)]="idTema" (change)="findByIdTema()">
+            <option *ngFor="let item of listaTema" value="{{ item.id }}">
+              {{ item.nome }}
+            </option>
+          </select>
+
+          <label for="titulo" class="modaltitle">Título</label>
+          <input [(ngModel)]="postagem.titulo" (keyup)='validaTitulo($event)' type="text" class="form-control" id="titulo"
+            placeholder="Digite o título" />
+
+          <label for="texto" class="modaltitle">Texto</label>
+          <textarea [(ngModel)]="postagem.conteudo" (keyup)='validaConteudo($event)' class="form-control" name="texto" id="texto" rows="3"
+            placeholder="O que você está pensando, {{ nome }}?"></textarea>
+
+          <label for="imagem" class="modaltitle">Imagem</label>
+          <input [(ngModel)]="postagem.imagem" (keyup)='validaImagem($event)' type="text" class="form-control" id="imagem" placeholder="Imagem" />
+
+          <label for="titulo" class="modaltitle">Link do video</label>
+          <div class="container">
+            <div class="row">
+              <input [(ngModel)]="postagem.video" type="text" placeholder="Link do video" />
+              <button class="btn btn-secondary ml-2" (click)="videoembed()"><i class="fa fa-video-camera"
+                  aria-hidden="true"></i> Visualizar
+              </button>
+            </div>
+            <div class="row config-video" *ngIf="!(videoSeguro == ''|| videoSeguro == null)">
+              <iframe width="560" height="315" [src]="videoSeguro" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            </div>
+          </div>
+
+          <!-- <label for="referencia" class="modaltitle">Referências de apoio</label>
+          <input [(ngModel)]="postagem.referencia" class="form-control" name="referencia" id="referencia"
+            placeholder="Digite a fonte do conteúdo (opcional)" /> -->
+
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger font-button" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button type="button" class="btn btn-success font-button" data-dismiss="modal" (click)="publicar()">
+          Publicar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- /Modal Postagem -->
+
