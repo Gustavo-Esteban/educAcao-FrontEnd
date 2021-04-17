@@ -60,4 +60,4 @@
 
 ## <h2 align="center"> Conheça mais sobre o projeto!</h2>
 <p align="center">Acesse o site e conheça mais sobre o nosso projeto! <strong>Clique no ícone abaixo:</strong></p>
-<p align="center"><a href="https://educacao1.herokuapp.com/"><img width="90px" src="https://i.imgur.com/NhBWVw2.png"></p>
+<p align="center"><a href="https://educacao2.herokuapp.com/"><img width="90px" src="https://i.imgur.com/NhBWVw2.png"></p>
