@@ -1,7 +1,7 @@
 export const environment = {
   production: true.valueOf,
-  server: 'http://localhost',
-  port: ':8080',
+  server: 'https://educacao.onrender.com',
+  port: '',
   token: '',
   nome: '',
   id: 0,
