@@ -16,23 +16,23 @@ export class ComentarioService {
   }
 
   getAllComentarios(): Observable<Comentario[]> {
-  return this.http.get<Comentario[]>(`${environment.server}${environment.port}/comentarios`, this.token)
+  return this.http.get<Comentario[]>(`${environment.server}/comentarios`, this.token)
   }
 
   getByIdComentario(id: number): Observable<Comentario>{
-    return this.http.get<Comentario>(`${environment.server}${environment.port}/comentarios/${id}`, this.token)
+    return this.http.get<Comentario>(`${environment.server}/comentarios/${id}`, this.token)
   }
 
   postComentario(comentario: Comentario): Observable<Comentario> {
-    return this.http.post<Comentario>(`${environment.server}${environment.port}/comentarios`, comentario, this.token)
+    return this.http.post<Comentario>(`${environment.server}/comentarios`, comentario, this.token)
   }
 
   putComentario(comentario: Comentario): Observable<Comentario>{
-    return this.http.put<Comentario>(`${environment.server}${environment.port}/comentarios`, comentario, this.token)
+    return this.http.put<Comentario>(`${environment.server}/comentarios`, comentario, this.token)
   }
 
   deleteComentario(id: number){
-    return this.http.delete(`${environment.server}${environment.port}/comentarios/${id}`, this.token)
+    return this.http.delete(`${environment.server}/comentarios/${id}`, this.token)
   }
 
 }
